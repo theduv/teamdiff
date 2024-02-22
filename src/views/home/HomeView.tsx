@@ -1,6 +1,7 @@
 import { ChangeEvent, KeyboardEvent, memo, useState } from "react";
 import { MdArrowForwardIos } from "react-icons/md";
 import { navigate } from "wouter/use-browser-location";
+import { useChampions } from "../../hooks/queries/champions";
 
 const HomeViewBase = () => {
   const [summonerValue, setSummonerValue] = useState("");
