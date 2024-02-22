@@ -4,7 +4,9 @@ import { HomeView } from "../views/home/HomeView";
 
 const RouterBase = () => (
   <Switch>
-    <Route path="/" component={HomeView} />
+    <div className="h-full w-full bg-blue-bg">
+      <Route path="/" component={HomeView} />
+    </div>
   </Switch>
 );
 
