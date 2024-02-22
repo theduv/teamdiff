@@ -220,9 +220,9 @@ export type Champion = {
   iconURL: string;
 };
 
-export type IndividualGrade = {
-  author: SummonerView;
-  reciever: SummonerView;
+export type IndividualReview = {
+  authorID: string;
+  recieverID: string;
   gameID: string;
   grade: number;
   champion: Champion;
@@ -230,10 +230,11 @@ export type IndividualGrade = {
 };
 
 export type ChampionGrade = {
+  id: string;
   name: string;
   iconURL: string;
-  grade: string;
-  individualGrades: IndividualGrade[];
+  grade: number;
+  individualReviews: IndividualReview[];
 };
 
 export type SummonerView = {
@@ -242,6 +243,7 @@ export type SummonerView = {
   iconURL: string;
   tag: string;
   globalGrade: number;
-  recievedReviews: ChampionGrade[];
-  givenReviews: IndividualGrade[];
+  championGrades: ChampionGrade[];
+  givenReviews: IndividualReview[];
+  recievedReviews: IndividualReview[];
 };

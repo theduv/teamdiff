@@ -1,18 +1,19 @@
 import { getChampionIconURL } from "../lib/functions/getChampionIconURL";
-import { IndividualGrade } from "../types/lib";
-import { MOCK_SUMMONERS } from "./summoners";
+import { IndividualReview } from "../types/lib";
+import { MOCK_SUMMONER_IDS } from "./id";
 
-export const MOCK_GRADES: IndividualGrade[] = [
+export const MOCK_REVIEWS: IndividualReview[] = [
   {
-    author: MOCK_SUMMONERS[0],
-    reciever: MOCK_SUMMONERS[1],
+    authorID: MOCK_SUMMONER_IDS[1],
+    recieverID: MOCK_SUMMONER_IDS[0],
     gameID: "010101",
-    grade: 2,
+    grade: 4,
     champion: {
       name: "Corki",
       id: "Corki",
       iconURL: getChampionIconURL("Corki"),
     },
-    comment: "Super trop fort ton Corki !!",
+    comment:
+      "Super trop fort ton Corki !! Tu peux m'épouser stp ? Comme ça on fait des bébés on vit ensemble etc etc",
   },
 ];
