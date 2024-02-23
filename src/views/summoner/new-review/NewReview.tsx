@@ -8,7 +8,7 @@ const NewReviewBase = () => {
         <StarRatings starDimension="30" />
       </div>
       <textarea
-        className="bg-gray-400 rounded-3xl placeholder:text-gray-200 items-center flex justify-center"
+        className="bg-gray-400 rounded-3xl placeholder:text-gray-200 items-center flex justify-center px-4 py-2"
         placeholder="Add a message to your grade"
       />
     </div>

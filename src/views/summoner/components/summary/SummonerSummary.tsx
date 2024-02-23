@@ -37,7 +37,7 @@ const SummonerSummaryBase = () => {
         </div>
       </div>
       {summoner.championGrades.map((review) => (
-        <div className="flex space-x-4 items-center">
+        <div className="flex space-x-4 items-center" key={review.championID}>
           <img
             src={review.iconURL}
             height={80}

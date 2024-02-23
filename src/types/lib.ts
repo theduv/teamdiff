@@ -221,6 +221,7 @@ export type Champion = {
 };
 
 export type IndividualReview = {
+  id: string;
   authorID: string;
   recieverID: string;
   gameID: string;
@@ -230,7 +231,7 @@ export type IndividualReview = {
 };
 
 export type ChampionGrade = {
-  id: string;
+  championID: string;
   name: string;
   iconURL: string;
   grade: number;

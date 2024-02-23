@@ -4,6 +4,7 @@ import { MOCK_SUMMONER_IDS } from "./id";
 
 export const MOCK_REVIEWS: IndividualReview[] = [
   {
+    id: "0",
     authorID: MOCK_SUMMONER_IDS[1],
     recieverID: MOCK_SUMMONER_IDS[0],
     gameID: "010101",
