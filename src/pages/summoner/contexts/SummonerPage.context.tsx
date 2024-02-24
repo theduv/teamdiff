@@ -2,32 +2,32 @@ import { ReactNode, createContext } from "react";
 import { SummonerView } from "../../../types/lib";
 import { useSummonerByName } from "../../../hooks/queries/summoner";
 
-type SummonerViewContextValue = {
+type SummonerPageContextValue = {
   summoner: SummonerView | null | undefined;
 };
 
-export const SummonerViewContext = createContext<SummonerViewContextValue>({
+export const SummonerPageContext = createContext<SummonerPageContextValue>({
   summoner: null,
 });
 
-type SummonerViewContextProviderProps = {
+type SummonerPageContextProviderProps = {
   summonerName: string;
   summonerTag: string;
   children: ReactNode;
 };
 
-export const SummonerViewContextProvider = ({
+export const SummonerPageContextProvider = ({
   summonerName,
   summonerTag,
   children,
-}: SummonerViewContextProviderProps) => {
+}: SummonerPageContextProviderProps) => {
   const { data: summoner } = useSummonerByName(summonerName, summonerTag);
 
   const contextValue = { summoner };
 
   return (
-    <SummonerViewContext.Provider value={contextValue}>
+    <SummonerPageContext.Provider value={contextValue}>
       {children}
-    </SummonerViewContext.Provider>
+    </SummonerPageContext.Provider>
   );
 };

@@ -1,9 +1,10 @@
 import { ChangeEvent, KeyboardEvent, memo, useState } from "react";
 import { MdArrowForwardIos } from "react-icons/md";
 import { navigate } from "wouter/use-browser-location";
+
 import { useChampions } from "../../hooks/queries/champions";
 
-const HomeViewBase = () => {
+const HomePageBase = () => {
   const [summonerValue, setSummonerValue] = useState("");
 
   const onChangeSummonerValue = (e: ChangeEvent<HTMLInputElement>) => {
@@ -46,4 +47,4 @@ const HomeViewBase = () => {
   );
 };
 
-export const HomeView = memo(HomeViewBase);
+export const HomePage = memo(HomePageBase);

@@ -2,10 +2,10 @@ import { memo, useContext } from "react";
 import StarRatings from "react-star-ratings";
 import { Link } from "wouter";
 
-import { SummonerViewContext } from "../../contexts/SummonerView.context";
+import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 
 const SummonerSummaryBase = () => {
-  const { summoner } = useContext(SummonerViewContext);
+  const { summoner } = useContext(SummonerPageContext);
 
   if (!summoner) return null;
 

@@ -1,19 +1,12 @@
 import { memo, useContext } from "react";
 
 import { SummonerSummary } from "./components/summary/SummonerSummary";
-import { SummonerViewContext } from "./contexts/SummonerView.context";
+import { SummonerPageContext } from "./contexts/SummonerPage.context";
 import { SummonerRecentReviews } from "./components/recent-reviews/SummonerRecentReviews";
 import { NewReview } from "./new-review/NewReview";
-import { useGetSummonerIDfromRiotID } from "../../hooks/queries/riot";
 
-const SummonerViewBase = () => {
-  const { summoner } = useContext(SummonerViewContext);
-  if (summoner) {
-    const res = useGetSummonerIDfromRiotID({
-      summonerName: summoner?.name,
-      summonerTag: summoner?.tag,
-    });
-  }
+const SummonerPageBase = () => {
+  const { summoner } = useContext(SummonerPageContext);
 
   if (!summoner) return <div>Error while retrieving this summoner.</div>;
 
@@ -29,4 +22,4 @@ const SummonerViewBase = () => {
   );
 };
 
-export const SummonerView = memo(SummonerViewBase);
+export const SummonerPage = memo(SummonerPageBase);

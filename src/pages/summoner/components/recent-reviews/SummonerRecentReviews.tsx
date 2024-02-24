@@ -1,10 +1,10 @@
 import { memo, useContext } from "react";
 
-import { SummonerViewContext } from "../../contexts/SummonerView.context";
+import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { Review } from "./Review";
 
 const SummonerRecentReviewsBase = () => {
-  const { summoner } = useContext(SummonerViewContext);
+  const { summoner } = useContext(SummonerPageContext);
 
   return (
     <div className="flex flex-col space-y-8">
