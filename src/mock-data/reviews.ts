@@ -1,10 +1,9 @@
-import { getChampionIconURL } from "../lib/functions/getChampionIconURL";
 import { IndividualReview } from "../types/lib";
-import { MOCK_SUMMONER_IDS } from "./id";
+import { MOCK_REVIEWS_IDS, MOCK_SUMMONER_IDS } from "./ids";
 
 export const MOCK_REVIEWS: IndividualReview[] = [
   {
-    id: "0",
+    id: MOCK_REVIEWS_IDS[0],
     authorID: MOCK_SUMMONER_IDS[1],
     recieverID: MOCK_SUMMONER_IDS[0],
     gameID: "010101",
@@ -12,9 +11,34 @@ export const MOCK_REVIEWS: IndividualReview[] = [
     champion: {
       name: "Corki",
       id: "Corki",
-      iconURL: getChampionIconURL("Corki"),
     },
     comment:
       "Super trop fort ton Corki !! Tu peux m'épouser stp ? Comme ça on fait des bébés on vit ensemble etc etc",
+  },
+  {
+    id: MOCK_REVIEWS_IDS[1],
+    authorID: MOCK_SUMMONER_IDS[1],
+    recieverID: MOCK_SUMMONER_IDS[0],
+    gameID: "02",
+    grade: 2,
+    champion: {
+      name: "Vladimir",
+      id: "Vladimir",
+    },
+    comment:
+      "Je t'aime beaucoup hein... mais ton vieux Vladimir là plus jamais.",
+  },
+  {
+    id: MOCK_REVIEWS_IDS[2],
+    authorID: MOCK_SUMMONER_IDS[1],
+    recieverID: MOCK_SUMMONER_IDS[0],
+    gameID: "03",
+    grade: 5,
+    champion: {
+      name: "Zac",
+      id: "Zac",
+    },
+    comment:
+      "OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!!",
   },
 ];

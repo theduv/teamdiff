@@ -3,6 +3,7 @@ import StarRatings from "react-star-ratings";
 import { Link } from "wouter";
 
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
+import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 
 const SummonerSummaryBase = () => {
   const { summoner } = useContext(SummonerPageContext);
@@ -39,7 +40,7 @@ const SummonerSummaryBase = () => {
       {summoner.championGrades.map((review) => (
         <div className="flex space-x-4 items-center" key={review.championID}>
           <img
-            src={review.iconURL}
+            src={getChampionIconURL(review.championID)}
             height={80}
             width={80}
             className="rounded-full"
@@ -59,7 +60,7 @@ const SummonerSummaryBase = () => {
         </div>
       ))}
       {summoner.championGrades.length > 3 && (
-        <Link href="/">
+        <Link href={`/summoner/${summoner.name}-${summoner.id}/more`}>
           <span>+ see more...</span>
         </Link>
       )}

@@ -217,7 +217,6 @@ export type ChampionFromRiotApi = {
 export type Champion = {
   name: string;
   id: championID;
-  iconURL: string;
 };
 
 export type IndividualReview = {
@@ -231,11 +230,10 @@ export type IndividualReview = {
 };
 
 export type ChampionGrade = {
-  championID: string;
+  championID: championID;
   name: string;
-  iconURL: string;
   grade: number;
-  individualReviews: IndividualReview[];
+  individualReviewsIDs: string[];
 };
 
 export type SummonerView = {
@@ -245,6 +243,6 @@ export type SummonerView = {
   tag: string;
   globalGrade: number;
   championGrades: ChampionGrade[];
-  givenReviews: IndividualReview[];
-  recievedReviews: IndividualReview[];
+  givenReviewsIDs: string[];
+  recievedReviewsIDs: string[];
 };

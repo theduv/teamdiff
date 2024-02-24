@@ -4,6 +4,7 @@ import StarRatings from "react-star-ratings";
 
 import { IndividualReview } from "../../../../types/lib";
 import { useSummonerByID } from "../../../../hooks/queries/summoner";
+import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 
 type ReviewProps = {
   review: IndividualReview;
@@ -43,7 +44,7 @@ const ReviewBase = ({ review }: ReviewProps) => {
       <div className="flex items-center justify-between ml-24">
         <span className="text-gray-400">{review.comment}</span>
         <img
-          src={review.champion.iconURL}
+          src={getChampionIconURL(review.champion.id)}
           className="rounded-full"
           width={48}
           height={48}
