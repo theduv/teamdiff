@@ -2,7 +2,7 @@ import { ChangeEvent, KeyboardEvent, memo, useState } from "react";
 import { MdArrowForwardIos } from "react-icons/md";
 import { navigate } from "wouter/use-browser-location";
 
-import { useChampions } from "../../hooks/queries/champions";
+import { isSummonerNameAndTagValid } from "../../lib/functions/isSummonerNameAndTagValid";
 
 const HomePageBase = () => {
   const [summonerValue, setSummonerValue] = useState("");
@@ -18,12 +18,10 @@ const HomePageBase = () => {
   };
 
   const onClickSearch = () => {
-    // TODO: check if name is valid
-    const splittedName = summonerValue.split("#");
-    const name = splittedName[0];
-    const tag = splittedName[1];
+    if (!isSummonerNameAndTagValid(summonerValue, "#")) return;
+    const [summonerName, summonerTag] = summonerValue.split("#");
 
-    navigate(`/summoner/${name}-${tag}`);
+    navigate(`/summoner/${summonerName}-${summonerTag}`);
   };
 
   return (
