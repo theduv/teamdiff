@@ -42,5 +42,5 @@ export type SummonerView = {
   championGrades: ChampionGrade[];
   givenReviewsIDs: string[];
   recievedReviewsIDs: string[];
-  badges: BadgesAmount[];
+  badges?: BadgesAmount[];
 };
