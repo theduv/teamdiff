@@ -1,7 +1,7 @@
-import { IndividualReview } from "../types/lib";
+import { Review } from "../types/lib";
 import { MOCK_REVIEWS_IDS, MOCK_SUMMONER_IDS } from "./ids";
 
-export const MOCK_REVIEWS: IndividualReview[] = [
+export const MOCK_REVIEWS: Review[] = [
   {
     id: MOCK_REVIEWS_IDS[0],
     authorID: MOCK_SUMMONER_IDS[1],

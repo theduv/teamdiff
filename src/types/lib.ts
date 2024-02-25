@@ -219,7 +219,7 @@ export type Champion = {
   id: championID;
 };
 
-export type IndividualReview = {
+export type Review = {
   id: string;
   authorID: string;
   recieverID: string;

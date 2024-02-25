@@ -1,13 +1,16 @@
 import { ReactNode, createContext } from "react";
-import { SummonerView } from "../../../types/lib";
+import { IndividualReview, SummonerView } from "../../../types/lib";
 import { useSummonerByName } from "../../../hooks/queries/summoner";
+import { useGetReviewsByIDs } from "../../../hooks/queries/reviews";
 
 type SummonerPageContextValue = {
   summoner: SummonerView | null | undefined;
+  lastReviews: IndividualReview[];
 };
 
 export const SummonerPageContext = createContext<SummonerPageContextValue>({
   summoner: null,
+  lastReviews: [],
 });
 
 type SummonerPageContextProviderProps = {
@@ -22,8 +25,15 @@ export const SummonerPageContextProvider = ({
   children,
 }: SummonerPageContextProviderProps) => {
   const { data: summoner } = useSummonerByName(summonerName, summonerTag);
+  let lastReviews: IndividualReview[] = [];
+  const { data } = useGetReviewsByIDs({
+    reviewsIDs: summoner ? summoner.recievedReviewsIDs : [],
+  });
+  if (data) {
+    lastReviews = data;
+  }
 
-  const contextValue = { summoner };
+  const contextValue = { summoner, lastReviews };
 
   return (
     <SummonerPageContext.Provider value={contextValue}>
