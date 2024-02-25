@@ -1,7 +1,6 @@
 import { SummonerView } from "../types/lib";
 import { MOCK_GRADES } from "./grades";
 import { MOCK_REVIEWS_IDS, MOCK_SUMMONER_IDS } from "./ids";
-import { MOCK_REVIEWS } from "./reviews";
 
 export const MOCK_SUMMONERS: SummonerView[] = [
   {
