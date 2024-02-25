@@ -29,4 +29,15 @@ export const MOCK_SUMMONERS: SummonerView[] = [
     givenReviewsIDs: [MOCK_REVIEWS_IDS[0]],
     recievedReviewsIDs: [],
   },
+  {
+    id: MOCK_SUMMONER_IDS[2],
+    name: "Apagnan Quoicoubeh",
+    tag: "YOLO",
+    iconURL:
+      "https://ddragon.leagueoflegends.com/cdn/10.15.1/img/profileicon/210.png",
+    globalGrade: 4.5,
+    championGrades: [],
+    givenReviewsIDs: [],
+    recievedReviewsIDs: [],
+  },
 ];

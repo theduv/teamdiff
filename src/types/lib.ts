@@ -27,7 +27,7 @@ export type SummonerView = {
   name: string;
   iconURL: string;
   tag: string;
-  globalGrade: number;
+  globalGrade: number | null;
   championGrades: ChampionGrade[];
   givenReviewsIDs: string[];
   recievedReviewsIDs: string[];
