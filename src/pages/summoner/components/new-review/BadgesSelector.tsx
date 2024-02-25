@@ -3,7 +3,7 @@ import { BsChatLeft } from "react-icons/bs";
 import { LiaBrainSolid } from "react-icons/lia";
 import { LuSwords } from "react-icons/lu";
 
-import { BadgeName } from "../../../types/lib";
+import { BadgeName } from "../../../../types/lib";
 
 import { Badge } from "./Badge";
 

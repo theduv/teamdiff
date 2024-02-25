@@ -1,3 +1,4 @@
+import { CHAMPION_ID } from "../enums/lib";
 import { Review } from "../types/lib";
 import { MOCK_REVIEWS_IDS, MOCK_SUMMONER_IDS } from "./ids";
 
@@ -10,7 +11,7 @@ export const MOCK_REVIEWS: Review[] = [
     grade: 4,
     champion: {
       name: "Corki",
-      id: "Corki",
+      id: CHAMPION_ID.CORKI,
     },
     comment:
       "Super trop fort ton Corki !! Tu peux m'épouser stp ? Comme ça on fait des bébés on vit ensemble etc etc",
@@ -23,7 +24,7 @@ export const MOCK_REVIEWS: Review[] = [
     grade: 2,
     champion: {
       name: "Vladimir",
-      id: "Vladimir",
+      id: CHAMPION_ID.VLADIMIR,
     },
     comment:
       "Je t'aime beaucoup hein... mais ton vieux Vladimir là plus jamais.",
@@ -36,7 +37,7 @@ export const MOCK_REVIEWS: Review[] = [
     grade: 5,
     champion: {
       name: "Zac",
-      id: "Zac",
+      id: CHAMPION_ID.ZAC,
     },
     comment:
       "OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!!",

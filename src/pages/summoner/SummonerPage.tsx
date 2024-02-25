@@ -3,7 +3,7 @@ import { memo, useContext } from "react";
 import { SummonerSummary } from "./components/summary/SummonerSummary";
 import { SummonerPageContext } from "./contexts/SummonerPage.context";
 import { SummonerRecentReviews } from "./components/recent-reviews/SummonerRecentReviews";
-import { NewReview } from "./new-review/NewReview";
+import { NewReview } from "./components/new-review/NewReview";
 
 const SummonerPageBase = () => {
   const { summoner } = useContext(SummonerPageContext);

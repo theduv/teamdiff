@@ -1,5 +1,5 @@
-import { championID } from "../../types/lib";
+import { CHAMPION_ID } from "../../enums/lib";
 
-export const getChampionIconURL = (championID: championID) => {
+export const getChampionIconURL = (championID: CHAMPION_ID) => {
   return `https://ddragon.leagueoflegends.com/cdn/14.4.1/img/champion/${championID}.png`;
 };

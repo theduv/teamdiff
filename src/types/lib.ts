@@ -1,4 +1,4 @@
-import { ChampionID } from "./riot-api";
+import { CHAMPION_ID } from "../enums/lib";
 
 export type BadgeName =
   | "GOOD_COMMUNICATION"
@@ -13,7 +13,7 @@ export type BadgesAmount = {
 
 export type Champion = {
   name: string;
-  id: ChampionID;
+  id: CHAMPION_ID;
 };
 
 export type Review = {
@@ -27,7 +27,7 @@ export type Review = {
 };
 
 export type ChampionGrade = {
-  championID: ChampionID;
+  championID: CHAMPION_ID;
   name: string;
   grade: number;
   individualReviewsIDs: string[];

@@ -1,9 +1,9 @@
 import { memo, useContext } from "react";
-import StarRatings from "react-star-ratings";
 import { Link } from "wouter";
 
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
+import { StarRating } from "../../../../components/StarRating/StarRating";
 
 const SummonerSummaryBase = () => {
   const { summoner } = useContext(SummonerPageContext);
@@ -25,12 +25,9 @@ const SummonerSummaryBase = () => {
           </span>
         </div>
         <div className="flex flex-col ">
-          <StarRatings
+          <StarRating
             rating={!!summoner.globalGrade ? summoner.globalGrade : 0}
-            numberOfStars={5}
-            starRatedColor="#FFA500"
-            starDimension="48px"
-            starSpacing="0"
+            size="big"
           />
           <h2 className="text-2xl font-bold text-gray-500 self-end">
             {summoner.globalGrade}
@@ -46,13 +43,7 @@ const SummonerSummaryBase = () => {
             className="rounded-full"
           />
           <div className="flex flex-col">
-            <StarRatings
-              rating={review.grade}
-              starRatedColor="#FFA500"
-              numberOfStars={5}
-              starSpacing="0"
-              starDimension="30"
-            />
+            <StarRating rating={review.grade} />
             <span className="self-end text-gray-300 font-bold">
               {review.grade}
             </span>
