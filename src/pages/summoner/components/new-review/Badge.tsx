@@ -25,24 +25,20 @@ const getBadgeIcon = (element: BADGE_NAME) => {
   }
 };
 
-const BadgeBase = ({ element, onClick, isSelected }: BadgeProps) => {
-  console.log(element);
-
-  return (
-    <>
-      <button
-        data-tooltip-id={element}
-        data-tooltip-content={BADGE_TOOLTIPS[element]}
-        className={clsx("rounded-full p-2 border border-1 border-gray-900", {
-          "bg-yellow-500": isSelected,
-        })}
-        onClick={onClick}
-      >
-        {getBadgeIcon(element)}
-      </button>
-      <Tooltip id={element} />
-    </>
-  );
-};
+const BadgeBase = ({ element, onClick, isSelected }: BadgeProps) => (
+  <>
+    <button
+      data-tooltip-id={element}
+      data-tooltip-content={BADGE_TOOLTIPS[element]}
+      className={clsx("rounded-full p-2 border border-1 border-gray-900", {
+        "bg-yellow-500": isSelected,
+      })}
+      onClick={onClick}
+    >
+      {getBadgeIcon(element)}
+    </button>
+    <Tooltip id={element} />
+  </>
+);
 
 export const Badge = memo(BadgeBase);
