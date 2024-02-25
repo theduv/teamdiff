@@ -1,4 +1,12 @@
-import { ChangeEvent, Dispatch, SetStateAction, memo, useState } from "react";
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  memo,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 import { CHAMPION_ID } from "../../../../enums/lib";
@@ -11,6 +19,20 @@ type ChampionPickerProps = {
 const ChampionPickerBase = ({ value, setValue }: ChampionPickerProps) => {
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const pickerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (pickerRef.current && !pickerRef.current.contains(e.target as Node)) {
+        setIsPickerOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [pickerRef]);
 
   const handleChangeSearchValue = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -36,7 +58,10 @@ const ChampionPickerBase = ({ value, setValue }: ChampionPickerProps) => {
         />
       </button>
       {isPickerOpen && (
-        <div className="absolute h-[300px] w-[300px] bg-gray-600 flex flex-col rounded-md p-2 space-y-3">
+        <div
+          ref={pickerRef}
+          className="absolute h-[300px] w-[300px] bg-gray-600 flex flex-col rounded-md p-2 space-y-3"
+        >
           <label className="flex space-x-4 items-center">
             <h4 className="text-gray-300">Champion:</h4>
             <input
