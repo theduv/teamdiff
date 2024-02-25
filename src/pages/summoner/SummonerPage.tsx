@@ -14,7 +14,7 @@ const SummonerPageBase = () => {
     <div className="pt-12 flex flex-row p-4 h-full space-x-8">
       <SummonerSummary />
       <div className="h-[90%] bg-gray-400 w-[1px]" />
-      <div className="flex flex-col space-y-4 h-full">
+      <div className="flex flex-col space-y-4 h-full w-full">
         <NewReview />
         <SummonerRecentReviews />
       </div>

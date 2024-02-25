@@ -1,7 +1,7 @@
 import { memo, useContext } from "react";
 
-import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { Review } from "./Review";
+import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { EmptyStateSummonerRecentReviews } from "./EmptyStateSummonerRecentReview";
 
 const SummonerRecentReviewsBase = () => {
