@@ -26,7 +26,7 @@ const SummonerSummaryBase = () => {
         </div>
         <div className="flex flex-col ">
           <StarRatings
-            rating={summoner.globalGrade}
+            rating={!!summoner.globalGrade ? summoner.globalGrade : 0}
             numberOfStars={5}
             starRatedColor="#FFA500"
             starDimension="48px"

@@ -2,9 +2,14 @@ import { memo, useContext } from "react";
 
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { Review } from "./Review";
+import { EmptyStateSummonerRecentReviews } from "./EmptyStateSummonerRecentReview";
 
 const SummonerRecentReviewsBase = () => {
   const { lastReviews } = useContext(SummonerPageContext);
+
+  if (lastReviews.length === 0) {
+    return <EmptyStateSummonerRecentReviews />;
+  }
 
   return (
     <div className="flex flex-col space-y-8">

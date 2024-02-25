@@ -31,11 +31,11 @@ export const MOCK_SUMMONERS: SummonerView[] = [
   },
   {
     id: MOCK_SUMMONER_IDS[2],
-    name: "Apagnan Quoicoubeh",
+    name: "Ffeur Deux",
     tag: "YOLO",
     iconURL:
       "https://ddragon.leagueoflegends.com/cdn/10.15.1/img/profileicon/210.png",
-    globalGrade: 4.5,
+    globalGrade: null,
     championGrades: [],
     givenReviewsIDs: [],
     recievedReviewsIDs: [],
