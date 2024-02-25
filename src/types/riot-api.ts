@@ -1,4 +1,4 @@
-export type championID =
+export type ChampionID =
   | "Aatrox"
   | "Ahri"
   | "Akali"

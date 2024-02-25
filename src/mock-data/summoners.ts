@@ -34,7 +34,7 @@ export const MOCK_SUMMONERS: SummonerView[] = [
     name: "Ffeur Deux",
     tag: "YOLO",
     iconURL:
-      "https://ddragon.leagueoflegends.com/cdn/10.15.1/img/profileicon/210.png",
+      "https://ddragon.leagueoflegends.com/cdn/10.15.1/img/profileicon/0.png",
     globalGrade: null,
     championGrades: [],
     givenReviewsIDs: [],

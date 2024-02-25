@@ -1,8 +1,19 @@
-import { championID } from "./riot-api";
+import { ChampionID } from "./riot-api";
+
+export type BadgeName =
+  | "GOOD_COMMUNICATION"
+  | "GOOD_MACRO"
+  | "GOOD_MICRO"
+  | "MVP";
+
+export type BadgesAmount = {
+  name: BadgeName;
+  amount: number;
+};
 
 export type Champion = {
   name: string;
-  id: championID;
+  id: ChampionID;
 };
 
 export type Review = {
@@ -16,7 +27,7 @@ export type Review = {
 };
 
 export type ChampionGrade = {
-  championID: championID;
+  championID: ChampionID;
   name: string;
   grade: number;
   individualReviewsIDs: string[];
@@ -31,4 +42,5 @@ export type SummonerView = {
   championGrades: ChampionGrade[];
   givenReviewsIDs: string[];
   recievedReviewsIDs: string[];
+  badges: BadgesAmount[];
 };
