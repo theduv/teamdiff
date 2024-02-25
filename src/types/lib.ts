@@ -1,13 +1,7 @@
-import { CHAMPION_ID } from "../enums/lib";
-
-export type BadgeName =
-  | "GOOD_COMMUNICATION"
-  | "GOOD_MACRO"
-  | "GOOD_MICRO"
-  | "MVP";
+import { BADGE_NAME, CHAMPION_ID } from "../enums/lib";
 
 export type BadgesAmount = {
-  name: BadgeName;
+  name: BADGE_NAME;
   amount: number;
 };
 

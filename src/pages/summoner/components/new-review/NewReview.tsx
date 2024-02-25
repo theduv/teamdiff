@@ -1,16 +1,14 @@
 import { ChangeEvent, memo, useState } from "react";
-import StarRatings from "react-star-ratings";
 
-import { BadgeName } from "../../../../types/lib";
 import { BadgesSelector } from "./BadgesSelector";
 import { ChampionPicker } from "./ChampionPicker";
-import { CHAMPION_ID } from "../../../../enums/lib";
+import { BADGE_NAME, CHAMPION_ID } from "../../../../enums/lib";
 import { StarRating } from "../../../../components/StarRating/StarRating";
 
 const NewReviewBase = () => {
   const [textValue, setTextValue] = useState("");
   const [ratingValue, setRatingValue] = useState(0);
-  const [badgesValue, setBadgesValue] = useState<BadgeName[]>([]);
+  const [badgesValue, setBadgesValue] = useState<BADGE_NAME[]>([]);
   const [championValue, setChampionValue] = useState<CHAMPION_ID>(
     CHAMPION_ID.AATROX
   );

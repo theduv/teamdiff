@@ -1,19 +1,15 @@
 import { Dispatch, SetStateAction, memo } from "react";
-import { BsChatLeft } from "react-icons/bs";
-import { LiaBrainSolid } from "react-icons/lia";
-import { LuSwords } from "react-icons/lu";
-
-import { BadgeName } from "../../../../types/lib";
 
 import { Badge } from "./Badge";
+import { BADGE_NAME } from "../../../../enums/lib";
 
 type BadgesSelectorProps = {
-  value: BadgeName[];
-  setValue: Dispatch<SetStateAction<BadgeName[]>>;
+  value: BADGE_NAME[];
+  setValue: Dispatch<SetStateAction<BADGE_NAME[]>>;
 };
 
 const BadgesSelectorBase = ({ value, setValue }: BadgesSelectorProps) => {
-  const onClickHadler = (badge: BadgeName) => {
+  const onClickHandler = (badge: BADGE_NAME) => {
     setValue((oldBadges) =>
       oldBadges.includes(badge)
         ? oldBadges.filter((currentBadge) => currentBadge !== badge)
@@ -23,23 +19,15 @@ const BadgesSelectorBase = ({ value, setValue }: BadgesSelectorProps) => {
 
   return (
     <div className="flex space-x-1 items-center">
-      <Badge
-        icon={<BsChatLeft />}
-        onClick={() => {
-          onClickHadler("GOOD_COMMUNICATION");
-        }}
-        isSelected={value.includes("GOOD_COMMUNICATION")}
-      />
-      <Badge
-        icon={<LiaBrainSolid />}
-        onClick={() => onClickHadler("GOOD_MACRO")}
-        isSelected={value.includes("GOOD_MACRO")}
-      />
-      <Badge
-        icon={<LuSwords />}
-        onClick={() => onClickHadler("GOOD_MICRO")}
-        isSelected={value.includes("GOOD_MICRO")}
-      />
+      {Object.values(BADGE_NAME).map((badgeName) => (
+        <Badge
+          element={badgeName}
+          isSelected={value.includes(badgeName)}
+          onClick={() => {
+            onClickHandler(badgeName);
+          }}
+        />
+      ))}
     </div>
   );
 };

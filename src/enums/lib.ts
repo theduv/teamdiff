@@ -174,3 +174,10 @@ export enum CHAMPION_ID {
   ZOE = "Zoe",
   ZYRA = "Zyra",
 }
+
+export enum BADGE_NAME {
+  GOOD_COMMUNICATION = "GOOD_COMMUNICATION",
+  GOOD_MACRO = "GOOD_MACRO",
+  GOOD_MICRO = "GOOD_MICRO",
+  // MVP = "MVP",
+}
