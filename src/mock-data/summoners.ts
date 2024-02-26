@@ -10,7 +10,12 @@ export const MOCK_SUMMONERS: SummonerView[] = [
       "https://images.contentstack.io/v3/assets/blt5bbf09732528de36/blt444c81450d32eaac/6217c2428eaa0f5e28b9201d/2022_WKO-Figures_Ornn_ecomm_image_03.jpg",
     tag: "NEO",
     globalGrade: 4.9,
-    championGrades: [MOCK_GRADES[2], MOCK_GRADES[0], MOCK_GRADES[1]],
+    championGrades: [
+      MOCK_GRADES[2],
+      MOCK_GRADES[0],
+      MOCK_GRADES[1],
+      MOCK_GRADES[3],
+    ],
     givenReviewsIDs: [],
     recievedReviewsIDs: [
       MOCK_REVIEWS_IDS[0],

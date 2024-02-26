@@ -10,6 +10,9 @@ const SummonerSummaryBase = () => {
 
   if (!summoner) return null;
 
+  const firstThreeGrades = [...summoner.championGrades];
+  firstThreeGrades.splice(3);
+
   return (
     <div className="flex flex-col space-y-8 self-start">
       <div className="flex flex-col items-center space-y-8">
@@ -34,7 +37,7 @@ const SummonerSummaryBase = () => {
           </h2>
         </div>
       </div>
-      {summoner.championGrades.map((review) => (
+      {firstThreeGrades.map((review) => (
         <div className="flex space-x-4 items-center" key={review.championID}>
           <img
             src={getChampionIconURL(review.championID)}
@@ -51,9 +54,11 @@ const SummonerSummaryBase = () => {
         </div>
       ))}
       {summoner.championGrades.length > 3 && (
-        <Link href={`/summoner/${summoner.name}-${summoner.id}/more`}>
-          <span>+ see more...</span>
-        </Link>
+        <div className="flex items-center justify-center w-full">
+          <Link href={`/summoner/${summoner.name}-${summoner.tag}/more`}>
+            <span className="text-blue-300">+ see more...</span>
+          </Link>
+        </div>
       )}
     </div>
   );
