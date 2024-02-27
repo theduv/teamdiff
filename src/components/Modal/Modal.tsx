@@ -21,7 +21,8 @@ const modalStyles = {
     display: "flex",
     flexDirection: "column",
     gap: "12px",
-    borderColor: "#1e293b",
+    borderColor: "#0f172a",
+    borderWidth: "2px",
   },
 } as ReactModal.Styles;
 
