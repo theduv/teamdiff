@@ -19,7 +19,7 @@ type ChampionPickerProps = {
 const ChampionPickerBase = ({ value, setValue }: ChampionPickerProps) => {
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const pickerRef = useRef<HTMLElement | null>(null);
+  const pickerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {

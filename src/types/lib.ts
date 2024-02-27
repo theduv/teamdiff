@@ -5,6 +5,10 @@ export type BadgesAmount = {
   amount: number;
 };
 
+export type Game = {
+  id: string;
+};
+
 export type Champion = {
   name: string;
   id: CHAMPION_ID;
@@ -28,7 +32,7 @@ export type ChampionGrade = {
 };
 
 export type SummonerView = {
-  id: string;
+  puuid: string;
   name: string;
   iconURL: string;
   tag: string;

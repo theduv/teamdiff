@@ -1,11 +1,11 @@
 import { ReactNode, createContext } from "react";
-import { IndividualReview, SummonerView } from "../../../types/lib";
+import { Review, SummonerView } from "../../../types/lib";
 import { useSummonerByName } from "../../../hooks/queries/summoner";
 import { useGetReviewsByIDs } from "../../../hooks/queries/reviews";
 
 type SummonerPageContextValue = {
   summoner: SummonerView | null | undefined;
-  lastReviews: IndividualReview[];
+  lastReviews: Review[];
 };
 
 export const SummonerPageContext = createContext<SummonerPageContextValue>({
@@ -25,7 +25,7 @@ export const SummonerPageContextProvider = ({
   children,
 }: SummonerPageContextProviderProps) => {
   const { data: summoner } = useSummonerByName(summonerName, summonerTag);
-  let lastReviews: IndividualReview[] = [];
+  let lastReviews: Review[] = [];
   const { data } = useGetReviewsByIDs({
     reviewsIDs: summoner ? summoner.recievedReviewsIDs : [],
   });

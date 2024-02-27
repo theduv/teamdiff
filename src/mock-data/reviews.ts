@@ -5,8 +5,10 @@ import { MOCK_REVIEWS_IDS, MOCK_SUMMONER_IDS } from "./ids";
 export const MOCK_REVIEWS: Review[] = [
   {
     id: MOCK_REVIEWS_IDS[0],
-    authorID: MOCK_SUMMONER_IDS[1],
-    recieverID: MOCK_SUMMONER_IDS[0],
+    authorID:
+      "DKJ1EtB6eOxRI0cn1eo5WpRvOtogE5m-y2otMFBJ3iHxjp_iGSR9Lucj-PzYgyxM9bVHBdzC8IAEMg",
+    recieverID:
+      "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
     gameID: "010101",
     grade: 4,
     champion: {
@@ -18,8 +20,10 @@ export const MOCK_REVIEWS: Review[] = [
   },
   {
     id: MOCK_REVIEWS_IDS[1],
-    authorID: MOCK_SUMMONER_IDS[1],
-    recieverID: MOCK_SUMMONER_IDS[0],
+    authorID:
+      "DKJ1EtB6eOxRI0cn1eo5WpRvOtogE5m-y2otMFBJ3iHxjp_iGSR9Lucj-PzYgyxM9bVHBdzC8IAEMg",
+    recieverID:
+      "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
     gameID: "02",
     grade: 2,
     champion: {
@@ -31,8 +35,10 @@ export const MOCK_REVIEWS: Review[] = [
   },
   {
     id: MOCK_REVIEWS_IDS[2],
-    authorID: MOCK_SUMMONER_IDS[1],
-    recieverID: MOCK_SUMMONER_IDS[0],
+    authorID:
+      "DKJ1EtB6eOxRI0cn1eo5WpRvOtogE5m-y2otMFBJ3iHxjp_iGSR9Lucj-PzYgyxM9bVHBdzC8IAEMg",
+    recieverID:
+      "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
     gameID: "03",
     grade: 5,
     champion: {

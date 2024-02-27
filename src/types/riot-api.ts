@@ -44,3 +44,55 @@ export type ChampionFromRiotApi = {
   title: string;
   version: string;
 };
+
+export type GameMatch = {
+  metadata: {
+    dataVersion: string;
+    matchId: string;
+    participants: string[];
+  };
+  info: {
+    gameCreation: number;
+    gameDuration: number;
+    gameId: number;
+    gameVersion: string;
+    participants: Participant[];
+    platformId: string;
+    queueId: number;
+    teams: Team[];
+  };
+};
+
+type Participant = {
+  assists: number;
+  champExperience: number;
+  champLevel: number;
+  championId: number;
+  damageDealtToBuildings: number;
+  damageDealtToObjectives: number;
+  damageDealtToTurrets: number;
+  deaths: number;
+};
+
+type Team = {
+  bans: Ban[];
+  objectives: Objectives;
+  teamId: number;
+  win: boolean;
+};
+
+type Ban = {
+  championId: number;
+  pickTurn: number;
+};
+
+type Objectives = {
+  baron: ObjectiveDetail;
+  champion: ObjectiveDetail;
+  dragon: ObjectiveDetail;
+};
+
+type ObjectiveDetail = {
+  first: boolean;
+  kills: number;
+};

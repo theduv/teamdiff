@@ -27,7 +27,7 @@ export const useSummonerByID = (summonerID: string) =>
       // TODO: call to back to retrieve infos
       let res = null;
       if (import.meta.env.VITE_ENVIRONMENT === "local") {
-        res = MOCK_SUMMONERS.find((summoner) => summoner.id === summonerID);
+        res = MOCK_SUMMONERS.find((summoner) => summoner.puuid === summonerID);
       }
       return res;
     },
