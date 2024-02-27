@@ -4,6 +4,15 @@ import { GameMatch } from "../../types/riot-api";
 
 const BASE_HISTORY_URL = `${import.meta.env.VITE_API_URL}/riot/history`;
 
+export const useGetSameGameHistoryData = (
+  matchesIDs: string[],
+  receiverPUUID: string
+) =>
+  useQuery({
+    queryKey: ["same-game-history"],
+    queryFn: async () => {},
+  });
+
 export const useGetMatchHistoryData = (matchesIDs: string[]) =>
   useQuery({
     queryKey: ["history-data", matchesIDs],

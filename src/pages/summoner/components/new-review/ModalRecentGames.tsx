@@ -16,7 +16,7 @@ const ModalRecentGamesBase = ({
   handleClose,
 }: ModalRecentGamesProps) => {
   const { summoner } = useContext(SummonerPageContext);
-  const { data: data } = useGetMatchHistoryIDs(summoner?.puuid);
+  const { data: data } = useGetMatchHistoryIDs(summoner?.PUUID);
   const matches = data?.matches;
   const miaou = useGetMatchHistoryData(matches ?? []);
 

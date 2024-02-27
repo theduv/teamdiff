@@ -7,7 +7,7 @@ export const MOCK_REVIEWS: Review[] = [
     id: MOCK_REVIEWS_IDS[0],
     authorID:
       "DKJ1EtB6eOxRI0cn1eo5WpRvOtogE5m-y2otMFBJ3iHxjp_iGSR9Lucj-PzYgyxM9bVHBdzC8IAEMg",
-    recieverID:
+    receiverID:
       "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
     gameID: "010101",
     grade: 4,
@@ -22,7 +22,7 @@ export const MOCK_REVIEWS: Review[] = [
     id: MOCK_REVIEWS_IDS[1],
     authorID:
       "DKJ1EtB6eOxRI0cn1eo5WpRvOtogE5m-y2otMFBJ3iHxjp_iGSR9Lucj-PzYgyxM9bVHBdzC8IAEMg",
-    recieverID:
+    receiverID:
       "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
     gameID: "02",
     grade: 2,
@@ -37,7 +37,7 @@ export const MOCK_REVIEWS: Review[] = [
     id: MOCK_REVIEWS_IDS[2],
     authorID:
       "DKJ1EtB6eOxRI0cn1eo5WpRvOtogE5m-y2otMFBJ3iHxjp_iGSR9Lucj-PzYgyxM9bVHBdzC8IAEMg",
-    recieverID:
+    receiverID:
       "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
     gameID: "03",
     grade: 5,
