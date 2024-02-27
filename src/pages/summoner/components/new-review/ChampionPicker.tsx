@@ -48,7 +48,7 @@ const ChampionPickerBase = ({ value, setValue }: ChampionPickerProps) => {
   };
 
   return (
-    <div>
+    <div className="flex">
       <button onClick={toggleOpenPicker}>
         <img
           src={getChampionIconURL(value)}

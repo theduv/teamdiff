@@ -35,12 +35,23 @@ export const MOCK_SUMMONERS: SummonerView[] = [
     recievedReviewsIDs: [],
   },
   {
-    id: MOCK_SUMMONER_IDS[2],
+    id: MOCK_SUMMONER_IDS[2], // summoner with no data
     name: "Ffeur Deux",
     tag: "YOLO",
     iconURL:
       "https://ddragon.leagueoflegends.com/cdn/10.15.1/img/profileicon/0.png",
     globalGrade: null,
+    championGrades: [],
+    givenReviewsIDs: [],
+    recievedReviewsIDs: [],
+  },
+  {
+    id: MOCK_SUMMONER_IDS[3], // longest possible name / tag
+    name: "16CHARLONGSTRING",
+    tag: "4LNG",
+    iconURL:
+      "https://ddragon.leagueoflegends.com/cdn/10.15.1/img/profileicon/5.png",
+    globalGrade: 1.2,
     championGrades: [],
     givenReviewsIDs: [],
     recievedReviewsIDs: [],
