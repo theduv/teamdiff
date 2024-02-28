@@ -1,17 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+
 import { GameMatch } from "../../types/riot-api";
 
 const BASE_HISTORY_URL = `${import.meta.env.VITE_API_URL}/riot/history`;
 
 export const useGetSameGameHistoryData = (
-  matchesIDs: string[],
-  receiverPUUID: string
-) =>
-  useQuery({
-    queryKey: ["same-game-history"],
-    queryFn: async () => {},
+  srcPUUID: string,
+  destPUUID: string
+) => {
+  return useQuery({
+    queryKey: ["same-game", srcPUUID],
+    queryFn: async () => {
+      const req = await axios.get(
+        `${BASE_HISTORY_URL}/common/${srcPUUID}/${destPUUID}`
+      );
+      return req;
+    },
   });
+};
 
 export const useGetMatchHistoryData = (matchesIDs: string[]) =>
   useQuery({

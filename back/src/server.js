@@ -21,6 +21,29 @@ fastify.get("/", async (req, rep) => {
   return { hello: world };
 });
 
+fastify.get("/riot/history/common/:srcPUUID/:destPUUID", async (req, res) => {
+  const { srcPUUID, destPUUID } = req.params;
+  let finalRes = [];
+  if (!srcPUUID || !destPUUID) {
+    throw new Error(406);
+  }
+  const destHistoryIDs = await apiLoL.MatchV5.list(
+    destPUUID,
+    Constants.RegionGroups.EUROPE
+  );
+  for (let matchID of destHistoryIDs.response) {
+    const currentMatch = await apiLoL.MatchV5.get(
+      matchID,
+      Constants.RegionGroups.EUROPE
+    );
+    const matchData = currentMatch?.response?.metadata;
+    const participants = matchData?.participants;
+    if (participants?.includes(srcPUUID) && participants?.includes(destPUUID))
+      finalRes.push(currentMatch.response.info);
+  }
+  res.send(finalRes);
+});
+
 fastify.get("/riot/history/:puuid", async (req, rep) => {
   const { puuid } = req.params;
   if (![puuid]) throw new error();
@@ -29,6 +52,7 @@ fastify.get("/riot/history/:puuid", async (req, rep) => {
     Constants.RegionGroups.EUROPE,
     {}
   );
+  console.log(res.response);
   return { matches: res.response };
 });
 
@@ -45,11 +69,14 @@ fastify.get("/riot/puuid/:riotId", async (req, rep) => {
   return { puuid };
 });
 
-fastify.get("/riot/history/match/:matchId", async (req, rep) => {
+fastify.get("/riot/history/match/:matchId", async (req, res) => {
   const { matchId } = req.params;
   if (!matchId) throw new error();
-  const res = await apiLoL.MatchV5.get(matchId, Constants.RegionGroups.EUROPE);
-  return { res };
+  const response = await apiLoL.MatchV5.get(
+    matchId,
+    Constants.RegionGroups.EUROPE
+  );
+  res.send(response.response);
 });
 
 try {

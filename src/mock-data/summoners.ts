@@ -36,6 +36,19 @@ export const MOCK_SUMMONERS: SummonerView[] = [
     givenReviewsIDs: [MOCK_REVIEWS_IDS[0]],
     recievedReviewsIDs: [],
   },
+
+  {
+    PUUID:
+      "mgokFezKKl-KEpF9ELWTw3kZ6I8eOwUfRpBbk-LHwSoxsLaV3UrkddteJTpRjFLR7XaX3qJ2QT_Puw",
+    name: "Nelien",
+    tag: "EUW",
+    iconURL:
+      "https://ddragon.leagueoflegends.com/cdn/10.15.1/img/profileicon/5.png",
+    globalGrade: 4.9,
+    championGrades: [],
+    givenReviewsIDs: [],
+    recievedReviewsIDs: [],
+  },
   {
     PUUID: MOCK_SUMMONER_IDS[0], // summoner with no data
     name: "Ffeur Deux",

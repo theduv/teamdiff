@@ -45,25 +45,29 @@ export type ChampionFromRiotApi = {
   version: string;
 };
 
+export type GameMatchInfo = {
+  gameCreation: number;
+  gameDuration: number;
+  gameId: number;
+  gameVersion: string;
+  participants: Participant[];
+  platformId: string;
+  queueId: number;
+  teams: Team[];
+};
+
 export type GameMatch = {
   metadata: {
     dataVersion: string;
     matchId: string;
     participants: string[];
   };
-  info: {
-    gameCreation: number;
-    gameDuration: number;
-    gameId: number;
-    gameVersion: string;
-    participants: Participant[];
-    platformId: string;
-    queueId: number;
-    teams: Team[];
-  };
+  info: GameMatchInfo;
 };
 
-type Participant = {
+export type Participant = {
+  puuid: string;
+  championName: string;
   assists: number;
   champExperience: number;
   champLevel: number;

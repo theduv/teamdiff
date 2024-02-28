@@ -14,7 +14,7 @@ const SummonerSummaryBase = () => {
   firstThreeGrades.splice(3);
 
   return (
-    <div className="flex flex-col space-y-8 self-start">
+    <div className="flex flex-col space-y-8 self-start min-w-[300px]">
       <div className="flex flex-col items-center space-y-8">
         <div className="flex flex-col items-center space-y-2">
           <img

@@ -21,6 +21,7 @@ const BadgesSelectorBase = ({ value, setValue }: BadgesSelectorProps) => {
     <div className="flex space-x-1 items-center">
       {Object.values(BADGE_NAME).map((badgeName) => (
         <Badge
+          key={`badge-${badgeName}`}
           element={badgeName}
           isSelected={value.includes(badgeName)}
           onClick={() => {

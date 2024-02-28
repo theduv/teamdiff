@@ -3,6 +3,7 @@ import { Router } from "./router/Router";
 import Modal from "react-modal";
 
 import "./App.css";
+import { AuthContextProvider } from "./contexts/Auth";
 
 const queryClient = new QueryClient();
 
@@ -10,9 +11,11 @@ Modal.setAppElement("#root");
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Router />
-    </QueryClientProvider>
+    <AuthContextProvider>
+      <QueryClientProvider client={queryClient}>
+        <Router />
+      </QueryClientProvider>
+    </AuthContextProvider>
   );
 }
 
