@@ -32,6 +32,7 @@ const BadgeBase = ({ element, onClick, isSelected }: BadgeProps) => (
       data-tooltip-content={BADGE_TOOLTIPS[element]}
       className={clsx("rounded-full p-2 border border-1 border-gray-900", {
         "bg-yellow-500": isSelected,
+        "bg-gray-300": !isSelected,
       })}
       onClick={onClick}
     >

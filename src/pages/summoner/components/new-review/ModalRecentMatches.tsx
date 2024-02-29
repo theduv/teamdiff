@@ -1,4 +1,4 @@
-import { memo, useContext } from "react";
+import { Dispatch, SetStateAction, memo, useContext } from "react";
 import TimeAgo from "timeago-react";
 
 import { Modal } from "../../../../components/Modal/Modal";
@@ -22,6 +22,7 @@ const getOpponentCharacter = ({
   );
   const championName = opponent?.championName;
   return {
+    id: matchInfos.gameId,
     championName,
     timestamp: matchInfos.gameCreation,
   };
@@ -30,11 +31,15 @@ const getOpponentCharacter = ({
 type ModalRecentGamesProps = {
   isOpen: boolean;
   handleClose: () => void;
+  setMatchValue: Dispatch<
+    SetStateAction<{ id: string; champion: CHAMPION_ID } | null>
+  >;
 };
 
-const ModalRecentGamesBase = ({
+const ModalRecentMatchesBase = ({
   isOpen,
   handleClose,
+  setMatchValue,
 }: ModalRecentGamesProps) => {
   const { summoner } = useContext(SummonerPageContext);
   const { summoner: currentUser } = useContext(AuthContext);
@@ -42,7 +47,11 @@ const ModalRecentGamesBase = ({
     summoner?.PUUID as string,
     currentUser?.PUUID as string
   );
-  let commonMatchesData: { championName: string; timestamp: number }[] = [];
+  let commonMatchesData: {
+    championName: string;
+    timestamp: number;
+    id: string;
+  }[] = [];
   if (commonMatches?.data) {
     const recentGames = commonMatches?.data.map((match: GameMatchInfo) =>
       getOpponentCharacter({ matchInfos: match, PUUID: summoner?.PUUID })
@@ -50,25 +59,35 @@ const ModalRecentGamesBase = ({
     commonMatchesData = [...recentGames];
   }
 
+  const onClickGame = (matchID: string, championName: string) => {
+    setMatchValue({ id: matchID, champion: championName as CHAMPION_ID });
+    handleClose();
+  };
+
   return (
     <Modal isOpen={isOpen} handleClose={handleClose} title="Recent games">
-      <div className="grid grid-cols-2 mx-auto items-center gap-2 my-auto">
-        {commonMatchesData?.map((match) => (
-          <>
-            <img
-              src={getChampionIconURL(match.championName as CHAMPION_ID)}
-              width={60}
-              height={60}
-              className="rounded-full"
-            />
-            <span className="text-2xl text-gray-400">
-              <TimeAgo datetime={match.timestamp} />
-            </span>
-          </>
-        ))}
+      <div className="flex items-center justify-center my-auto">
+        <div className="flex flex-col space-y-2 items-center w-1/2">
+          {commonMatchesData?.map((match) => (
+            <button
+              className="flex items-center justify-between w-full"
+              onClick={() => onClickGame(match.id, match.championName)}
+            >
+              <img
+                src={getChampionIconURL(match.championName as CHAMPION_ID)}
+                width={60}
+                height={60}
+                className="rounded-full"
+              />
+              <span className="text-2xl text-gray-400">
+                <TimeAgo datetime={match.timestamp} />
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
     </Modal>
   );
 };
 
-export const ModalRecentGames = memo(ModalRecentGamesBase);
+export const ModalRecentMatches = memo(ModalRecentMatchesBase);
