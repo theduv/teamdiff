@@ -9,14 +9,18 @@ import { GameMatchInfo, Participant } from "../../../../types/riot-api";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 import { CHAMPION_ID } from "../../../../enums/lib";
 
-const getOpponentCharacter: { championName?: string; timestamp?: number } = (
-  matchInfos: GameMatchInfo | undefined,
-  PUUID: string | undefined
-) => {
+const getOpponentCharacter = ({
+  matchInfos,
+  PUUID,
+}: {
+  matchInfos?: GameMatchInfo;
+  PUUID?: string;
+}) => {
   if (!matchInfos || !PUUID) return {};
-  const championName = matchInfos?.participants?.find(
+  const opponent = matchInfos?.participants?.find(
     (participant: Participant) => participant.puuid === PUUID
-  ).championName;
+  );
+  const championName = opponent?.championName;
   return {
     championName,
     timestamp: matchInfos.gameCreation,
@@ -41,7 +45,7 @@ const ModalRecentGamesBase = ({
   let commonMatchesData: { championName: string; timestamp: number }[] = [];
   if (commonMatches?.data) {
     const recentGames = commonMatches?.data.map((match: GameMatchInfo) =>
-      getOpponentCharacter(match, summoner?.PUUID)
+      getOpponentCharacter({ matchInfos: match, PUUID: summoner?.PUUID })
     );
     commonMatchesData = [...recentGames];
   }
