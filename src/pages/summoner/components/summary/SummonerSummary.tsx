@@ -37,6 +37,7 @@ const SummonerSummaryBase = () => {
           </h2>
         </div>
       </div>
+      <div className="w-full h-[1px] bg-gray-500" />
       {firstThreeGrades.map((review) => (
         <div className="flex space-x-4 items-center" key={review.championID}>
           <img
@@ -47,7 +48,7 @@ const SummonerSummaryBase = () => {
           />
           <div className="flex flex-col">
             <StarRating rating={review.grade} />
-            <span className="self-end text-gray-300 font-bold">
+            <span className="self-end text-gray-500 font-bold">
               {review.grade}
             </span>
           </div>

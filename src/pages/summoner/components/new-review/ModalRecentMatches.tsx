@@ -70,6 +70,7 @@ const ModalRecentMatchesBase = ({
         <div className="flex flex-col space-y-2 items-center w-1/2">
           {commonMatchesData?.map((match) => (
             <button
+              key={`match-${match.id}`}
               className="flex items-center justify-between w-full"
               onClick={() => onClickGame(match.id, match.championName)}
             >
