@@ -34,6 +34,7 @@ export type ChampionGrade = {
 export type SummonerView = {
   PUUID: string;
   name: string;
+  description?: string;
   iconURL: string;
   tag: string;
   globalGrade: number | null;

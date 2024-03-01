@@ -5,12 +5,14 @@ import { MOCK_REVIEWS_IDS, MOCK_SUMMONER_IDS } from "./ids";
 export const MOCK_SUMMONERS: SummonerView[] = [
   {
     name: "REDEMPTION",
+    tag: "NEO",
     PUUID:
       "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
     iconURL:
       "https://images.contentstack.io/v3/assets/blt5bbf09732528de36/blt444c81450d32eaac/6217c2428eaa0f5e28b9201d/2022_WKO-Figures_Ornn_ecomm_image_03.jpg",
-    tag: "NEO",
     globalGrade: 4.9,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lorem velit, tempor vitae massa id, tristique imperdiet massa. Cras at purus ac ante tincidunt varius in eu orci.",
     championGrades: [
       MOCK_GRADES[2],
       MOCK_GRADES[0],

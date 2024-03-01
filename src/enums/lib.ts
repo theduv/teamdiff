@@ -181,3 +181,9 @@ export enum BADGE_NAME {
   GOOD_MICRO = "GOOD_MICRO",
   // MVP = "MVP",
 }
+
+export enum BADGE_LABEL {
+  GOOD_COMMUNICATION = "Good communication",
+  GOOD_MACRO = "Good macro",
+  GOOD_MICRO = "Good mechanics",
+}
