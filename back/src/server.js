@@ -79,6 +79,14 @@ fastify.get("/riot/history/match/:matchId", async (req, res) => {
   res.send(response.response);
 });
 
+fastify.get("/riot/summoner/:puuid", async (req, res) => {
+  const { puuid } = req.params;
+  if (!puuid) throw new error();
+  const response = await apiLoL.Summoner.getByPUUID(puuid, "euw");
+  console.log({ response });
+  res.send(response);
+});
+
 try {
   await fastify.listen({ port: 3000 });
 } catch (err) {

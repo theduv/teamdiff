@@ -17,6 +17,7 @@ export type Champion = {
 export type Review = {
   id: string;
   authorID: string;
+
   receiverID: string;
   gameID: string;
   grade: number;
@@ -35,7 +36,6 @@ export type SummonerView = {
   PUUID: string;
   name: string;
   description?: string;
-  iconURL: string;
   tag: string;
   globalGrade: number | null;
   championGrades: ChampionGrade[];

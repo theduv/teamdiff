@@ -14,18 +14,18 @@ const BestChampsBase = () => {
   firstThreeChamps.splice(3);
 
   return (
-    <div className="bg-secondary items-center rounded-lg p-8 pr-12 justify-center flex flex-col space-y-8 h-full w-[300px]">
+    <div className="bg-secondary items-center rounded-lg py-8 px-4 pr-12 justify-center flex flex-col space-y-8 h-full w-[300px]">
       <div className="flex flex-col space-y-4">
         {!!firstThreeChamps.length ? (
           firstThreeChamps.map((champ) => (
-            <div className="flex space-x-4 items-center bg-primary rounded-xl py-1 px-2">
+            <div className="flex space-x-4 items-center bg-primary rounded-lg py-1 px-2">
               <img
                 className="rounded-full border-2 border-black"
                 src={getChampionIconURL(champ.championID)}
                 width={CHAMPION_ICON_SIZE}
                 height={CHAMPION_ICON_SIZE}
               />
-              <div className="flex items-center text-secondary justify-between w-full min-w-[150px]">
+              <div className="flex items-center text-secondary w-full min-w-[150px]">
                 <StarRating rating={champ.grade} size="xsmall" />
                 <span className="font-bold">{champ.grade}</span>
               </div>

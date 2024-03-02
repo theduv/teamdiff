@@ -2,7 +2,10 @@ import { memo } from "react";
 import { Link } from "wouter";
 
 import { Review as ReviewType } from "../../../../types/lib";
-import { useSummonerByID } from "../../../../hooks/queries/summoner";
+import {
+  useGetRiotSummonerByPUUID,
+  useSummonerByID,
+} from "../../../../hooks/queries/summoner";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 import { StarRating } from "../../../../components/StarRating/StarRating";
 
@@ -15,19 +18,30 @@ type ReviewProps = {
 
 const ReviewBase = ({ review }: ReviewProps) => {
   const { data: summoner } = useSummonerByID(review.authorID);
+  const res = useGetRiotSummonerByPUUID(summoner?.PUUID);
+
+  console.log(res);
 
   if (!summoner) return null;
 
   return (
     <div className="flex items-center space-x-4 rounded-lg">
       <img
-        src={summoner.iconURL}
+        // src={data.}
         width={SUMMONER_ICON_SIZE}
         height={SUMMONER_ICON_SIZE}
         className="rounded-full max-w-fit"
       />
       <div className="flex flex-col">
-        <StarRating rating={review.grade} size={"xsmall"} />
+        <div className="flex items-center space-x-2">
+          <img
+            src={getChampionIconURL(review.champion.id)}
+            className="rounded-full"
+            width={CHAMPION_ICON_SIZE}
+            height={CHAMPION_ICON_SIZE}
+          />
+          <StarRating rating={review.grade} size={"xsmall"} />
+        </div>
         <Link href={`/summoner/${summoner.name}-${summoner.tag}`}>
           <h2 className="font-bold text-xl">
             {summoner.name}#{summoner.tag}
@@ -35,12 +49,6 @@ const ReviewBase = ({ review }: ReviewProps) => {
         </Link>
         <div className="flex items-center justify-between space-x-2">
           <span>{review.comment}</span>
-          <img
-            src={getChampionIconURL(review.champion.id)}
-            className="rounded-full"
-            width={CHAMPION_ICON_SIZE}
-            height={CHAMPION_ICON_SIZE}
-          />
         </div>
       </div>
     </div>
