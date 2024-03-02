@@ -28,30 +28,30 @@ const NewReviewBase = () => {
   };
 
   return (
-    <div className="flex flex-col rounded-md h-full bg-blue-500 ">
-      {matchValue && (
-        <div className="flex justify-center">
-          <div className="flex space-x-4 items-center bg-gray-500 py-1 px-6 rounded-t-lg ">
-            <img
-              className="rounded-full"
-              src={getChampionIconURL(matchValue.champion)}
-              width={32}
-              height={32}
-            />
-            <span className="text-xl text-gray-200">
-              Reviewing <span className="font-bold">{summoner?.name}</span> as{" "}
-              {matchValue.champion}
-            </span>
-          </div>
-        </div>
-      )}
-      <div className="bg-gray-600 flex-1 flex  px-4 py-2 justify-between items-center">
+    <div className="flex flex-col rounded-md flex-1 h-full">
+      <div className="bg-gray-600 flex px-4 py-2 justify-between items-center">
         <div className="flex flex-col">
           <StarRating
             onChangeRating={changeRatingHandler}
             rating={ratingValue}
           />
         </div>
+        {matchValue && (
+          <div className="flex justify-center">
+            <div className="flex space-x-4 items-center bg-gray-700 py-1 px-6 rounded-lg ">
+              <img
+                className="rounded-full"
+                src={getChampionIconURL(matchValue.champion)}
+                width={32}
+                height={32}
+              />
+              <span className="text-xl text-gray-200">
+                Reviewing <span className="font-bold">{summoner?.name}</span> as{" "}
+                {matchValue.champion}
+              </span>
+            </div>
+          </div>
+        )}
         <div className="flex space-x-2 items-center">
           <BadgesSelector value={badgesValue} setValue={setBadgesValue} />
           <button

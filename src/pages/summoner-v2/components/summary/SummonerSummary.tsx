@@ -3,7 +3,7 @@ import { memo, useContext } from "react";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { StarRating } from "../../../../components/StarRating/StarRating";
 
-const SUMMONER_ICON_SIZE = 108;
+const SUMMONER_ICON_SIZE = 130;
 
 const SummonerSummaryBase = () => {
   const { summoner } = useContext(SummonerPageContext);
@@ -14,7 +14,7 @@ const SummonerSummaryBase = () => {
   firstThreeGrades.splice(3);
 
   return (
-    <div className="flex space-y-8 self-start bg-gray-900 rounded-t-md py-2 px-4 ">
+    <div className="flex space-y-8 self-start bg-gray-900 rounded-t-md py-2 px-4 w-full ">
       <div className="flex flex-col space-y-2 ">
         <div className="flex items-center space-x-8 ">
           <img
@@ -23,7 +23,7 @@ const SummonerSummaryBase = () => {
             height={SUMMONER_ICON_SIZE}
             className="rounded-3xl"
           />
-          <div className="flex flex-col">
+          <div className="flex flex-col space-y-3">
             <span className="text-gray-300 text-2xl font-bold">
               {summoner.name}#{summoner.tag}
             </span>

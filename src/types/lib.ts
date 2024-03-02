@@ -5,7 +5,7 @@ export type BadgesAmount = {
   amount: number;
 };
 
-export type Game = {
+export type Match = {
   id: string;
 };
 

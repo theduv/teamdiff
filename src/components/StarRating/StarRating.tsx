@@ -1,5 +1,6 @@
 import { memo } from "react";
 import StarRatings from "react-star-ratings";
+import { STAR_COLOR, STAR_EMPTY_COLOR } from "../../constants/lib";
 
 type STAR_RATING_SIZE = "xsmall" | "big" | "small";
 
@@ -12,11 +13,22 @@ type StarRatingProps = {
 const getStarDimension = (size: STAR_RATING_SIZE) => {
   switch (size) {
     case "xsmall":
-      return "16";
+      return "19";
     case "small":
       return "32";
     case "big":
       return "48";
+  }
+};
+
+const getStarRatingWidth = (size: STAR_RATING_SIZE) => {
+  switch (size) {
+    case "xsmall":
+      return "110px";
+    case "small":
+      return "170px";
+    case "big":
+      return "240px";
   }
 };
 
@@ -26,15 +38,18 @@ const StarRatingBase = ({
   onChangeRating = undefined,
 }: StarRatingProps) => {
   return (
-    <StarRatings
-      starDimension={getStarDimension(size)}
-      starRatedColor="#FFA500"
-      starHoverColor="#FFA500"
-      starSpacing="0px"
-      rating={rating}
-      changeRating={onChangeRating}
-      numberOfStars={5}
-    />
+    <div className={`min-w-[${getStarRatingWidth(size)}]`}>
+      <StarRatings
+        starDimension={getStarDimension(size)}
+        starEmptyColor={STAR_EMPTY_COLOR}
+        starRatedColor={STAR_COLOR}
+        starHoverColor={STAR_COLOR}
+        starSpacing="0px"
+        rating={rating}
+        changeRating={onChangeRating}
+        numberOfStars={5}
+      />
+    </div>
   );
 };
 
