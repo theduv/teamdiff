@@ -24,7 +24,7 @@ const ReviewBase = ({ review }: ReviewProps) => {
   if (!summoner || !riotSummoner) return null;
 
   return (
-    <div className="flex items-center space-x-4 rounded-lg">
+    <div className="flex items-center space-x-4 rounded-lg bg-gray-300 p-2 shadow-md shadow-primary border border-primary">
       <img
         src={getSummonerIconURL(riotSummoner.profileIconId)}
         width={SUMMONER_ICON_SIZE}

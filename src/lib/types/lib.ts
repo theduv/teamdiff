@@ -17,7 +17,7 @@ export type Champion = {
 export type Review = {
   id: string;
   authorID: string;
-
+  badges?: BADGE_NAME[];
   receiverID: string;
   gameID: string;
   grade: number;
