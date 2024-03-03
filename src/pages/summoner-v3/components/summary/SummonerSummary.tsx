@@ -16,12 +16,12 @@ const SummonerSummaryBase = () => {
 
   if (!summoner || !riotSummoner) return null;
 
-  const firstThreeGrades = [...summoner.championGrades];
+  const firstThreeGrades = [...(summoner.championGrades ?? [])];
   firstThreeGrades.splice(3);
 
   return (
     <div className="flex justify-between space-x-2 w-full rounded-lg text-primary">
-      <div className="flex flex-col p-2 rounded-lg bg-secondary w-full space-y-4">
+      <div className="flex flex-col p-2 rounded-lg bg-secondary w-full space-y-2 py-3 px-3">
         <BadgesZone />
         <div className="flex space-x-2">
           <div className="flex flex-col space-y-1">
