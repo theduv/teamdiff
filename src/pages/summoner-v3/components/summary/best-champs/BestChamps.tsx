@@ -14,7 +14,7 @@ const BestChampsBase = () => {
 
   if (!summoner) return null;
 
-  const firstThreeChamps = summoner?.championGrades;
+  const firstThreeChamps = [...summoner?.championGrades];
   firstThreeChamps.splice(3);
 
   return (
@@ -31,6 +31,7 @@ const BestChampsBase = () => {
                     "rounded-b-lg":
                       index === firstThreeChamps.length - 1 &&
                       summoner.championGrades.length < 3,
+                    "rounded-lg": index === 0 && firstThreeChamps.length === 1,
                   }
                 )}
               >
@@ -46,7 +47,7 @@ const BestChampsBase = () => {
                 </div>
               </div>
             ))}
-            {summoner.championGrades.length > 2 && (
+            {summoner.championGrades.length > 3 && (
               <Link
                 href={`/summoner`}
                 className="bg-secondary px-2 h-full rounded-b-lg w-full text-center text-primary flex items-center justify-center space-x-2"

@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { Link } from "wouter";
+import clsx from "clsx";
 
 import { Review as ReviewType } from "../../../../lib/types/lib";
 import {
@@ -9,7 +10,6 @@ import {
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 import { StarRating } from "../../../../components/StarRating/StarRating";
 import { getSummonerIconURL } from "../../../../lib/functions/getSummonerIconURL";
-import clsx from "clsx";
 
 const CHAMPION_ICON_SIZE = 48;
 const SUMMONER_ICON_SIZE = 24;
