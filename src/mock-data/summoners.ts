@@ -6,6 +6,7 @@ export const MOCK_SUMMONERS: SummonerView[] = [
   {
     name: "REDEMPTION",
     tag: "NEO",
+    hasAnAccount: true,
     PUUID:
       "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
     globalGrade: 4.9,
@@ -26,6 +27,8 @@ export const MOCK_SUMMONERS: SummonerView[] = [
   },
   {
     name: "Anaru",
+    hasAnAccount: true,
+
     PUUID:
       "DKJ1EtB6eOxRI0cn1eo5WpRvOtogE5m-y2otMFBJ3iHxjp_iGSR9Lucj-PzYgyxM9bVHBdzC8IAEMg",
     tag: "0707",
@@ -38,6 +41,7 @@ export const MOCK_SUMMONERS: SummonerView[] = [
   {
     PUUID:
       "mgokFezKKl-KEpF9ELWTw3kZ6I8eOwUfRpBbk-LHwSoxsLaV3UrkddteJTpRjFLR7XaX3qJ2QT_Puw",
+    hasAnAccount: true,
     name: "Nelien",
     tag: "EUW",
     globalGrade: 4.9,
@@ -49,6 +53,7 @@ export const MOCK_SUMMONERS: SummonerView[] = [
     PUUID: MOCK_SUMMONER_IDS[0], // summoner with no data
     name: "Ffeur Deux",
     tag: "YOLO",
+    hasAnAccount: true,
     globalGrade: null,
     championGrades: [],
     givenReviewsIDs: [],
@@ -58,6 +63,7 @@ export const MOCK_SUMMONERS: SummonerView[] = [
     PUUID: MOCK_SUMMONER_IDS[3], // longest possible name / tag
     name: "16CHARLONGSTRING",
     tag: "4LNG",
+    hasAnAccount: true,
     globalGrade: 1.2,
     championGrades: [],
     givenReviewsIDs: [],

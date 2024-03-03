@@ -19,7 +19,7 @@ type ReviewProps = {
 };
 
 const ReviewBase = ({ review }: ReviewProps) => {
-  const { data: summoner } = useSummonerByID(review.authorID);
+  const { data: summoner } = useSummonerByID(review.authorUUID);
   const { data: riotSummoner } = useGetRiotSummonerByPUUID(summoner?.PUUID);
 
   if (!summoner || !riotSummoner) return null;

@@ -5,11 +5,11 @@ import { MOCK_REVIEWS_IDS, MOCK_SUMMONER_IDS } from "./ids";
 export const MOCK_REVIEWS: Review[] = [
   {
     id: MOCK_REVIEWS_IDS[0],
-    authorID:
+    authorUUID:
       "DKJ1EtB6eOxRI0cn1eo5WpRvOtogE5m-y2otMFBJ3iHxjp_iGSR9Lucj-PzYgyxM9bVHBdzC8IAEMg",
-    receiverID:
+    receiverUUID:
       "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
-    gameID: "010101",
+    matchID: "010101",
     grade: 4,
     champion: {
       name: "Corki",
@@ -21,11 +21,11 @@ export const MOCK_REVIEWS: Review[] = [
   },
   {
     id: MOCK_REVIEWS_IDS[1],
-    authorID:
+    authorUUID:
       "DKJ1EtB6eOxRI0cn1eo5WpRvOtogE5m-y2otMFBJ3iHxjp_iGSR9Lucj-PzYgyxM9bVHBdzC8IAEMg",
-    receiverID:
+    receiverUUID:
       "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
-    gameID: "02",
+    matchID: "02",
     grade: 2,
     hasWon: false,
     champion: {
@@ -37,11 +37,11 @@ export const MOCK_REVIEWS: Review[] = [
   },
   {
     id: MOCK_REVIEWS_IDS[2],
-    authorID:
+    authorUUID:
       "DKJ1EtB6eOxRI0cn1eo5WpRvOtogE5m-y2otMFBJ3iHxjp_iGSR9Lucj-PzYgyxM9bVHBdzC8IAEMg",
-    receiverID:
+    receiverUUID:
       "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
-    gameID: "03",
+    matchID: "03",
     grade: 5,
     champion: {
       name: "Zac",

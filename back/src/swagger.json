@@ -1,0 +1,500 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "checkm8 swagger"
+    },
+    "tags": [
+        {
+            "name": "riot",
+            "description": "Endpoints involving riot API."
+        },
+        {
+            "name": "summoner",
+            "description": "Endpoints about summoners / checkm8 accounts."
+        },
+        {
+            "name": "review",
+            "description": "Endpoints about reviews"
+        }
+    ],
+    "paths": {
+        "/riot/summoner/:puuid": {
+            "get": {
+                "tags": [
+                    "riot"
+                ],
+                "summary": "Get summoner object from Riot API.",
+                "parameters": [
+                    {
+                        "required": true,
+                        "type": "string",
+                        "name": "puuid",
+                        "in": "path",
+                        "description": "PUUID of the target summoner."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved the user.",
+                        "schema": {
+                            "$ref": "#/definitions/RiotSummoner"
+                        }
+                    }
+                }
+            }
+        },
+        "/riot/common-matches/:srcPuuid/:dstPuuid": {
+            "get": {
+                "tags": [
+                    "riot"
+                ],
+                "summary": "Get common matches between summoner A and summoner B.",
+                "parameters": [
+                    {
+                        "required": true,
+                        "type": "string",
+                        "name": "srcPuuid",
+                        "in": "path"
+                    },
+                    {
+                        "required": true,
+                        "type": "string",
+                        "name": "dstPuuid",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved the common matches.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/summoner/:summonerName/:summonerTag": {
+            "get": {
+                "tags": [
+                    "summoner"
+                ],
+                "summary": "Get summoner from database or Riot API.",
+                "parameters": [
+                    {
+                        "required": true,
+                        "type": "string",
+                        "name": "summonerName",
+                        "in": "path",
+                        "description": "Summoner name of the user."
+                    },
+                    {
+                        "required": true,
+                        "type": "string",
+                        "name": "summonerTag",
+                        "in": "path",
+                        "description": "Summoner tag of the user."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully found the user.",
+                        "schema": {
+                            "$ref": "#/definitions/checkm8Summoner"
+                        }
+                    }
+                }
+            }
+        },
+        "/review/:reviewID": {
+            "get": {
+                "tags": [
+                    "review"
+                ],
+                "summary": "Get a review from the database.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "reviewID",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved the review.",
+                        "schema": {
+                            "$ref": "#/definitions/review"
+                        }
+                    }
+                }
+            }
+        },
+        "/review": {
+            "put": {
+                "tags": [
+                    "review"
+                ],
+                "summary": "Create a new review in database.",
+                "parameters": [
+                    {
+                        "name": "content",
+                        "type": "string",
+                        "in": "query"
+                    },
+                    {
+                        "name": "badges",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/badge"
+                        },
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully added the review to the database.",
+                        "schema": {}
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "championID": {
+            "type": "string",
+            "enum": [
+                "Aatrox",
+                "Ahri",
+                "Akali",
+                "Akshan",
+                "Alistar",
+                "Amumu",
+                "Anivia",
+                "Annie",
+                "Aphelios",
+                "Ashe",
+                "AurelionSol",
+                "Azir",
+                "Bard",
+                "Belveth",
+                "Blitzcrank",
+                "Brand",
+                "Braum",
+                "Briar",
+                "Caitlyn",
+                "Camille",
+                "Cassiopeia",
+                "Chogath",
+                "Corki",
+                "Darius",
+                "Diana",
+                "Draven",
+                "DrMundo",
+                "Ekko",
+                "Elise",
+                "Evelynn",
+                "Ezreal",
+                "Fiddlesticks",
+                "Fiora",
+                "Fizz",
+                "Galio",
+                "Gangplank",
+                "Garen",
+                "Gnar",
+                "Gragas",
+                "Graves",
+                "Gwen",
+                "Hecarim",
+                "Heimerdinger",
+                "Hwei",
+                "Illaoi",
+                "Irelia",
+                "Ivern",
+                "Janna",
+                "JarvanIV",
+                "Jax",
+                "Jayce",
+                "Jhin",
+                "Jinx",
+                "Kaisa",
+                "Kalista",
+                "Karma",
+                "Karthus",
+                "Kassadin",
+                "Katarina",
+                "Kayle",
+                "Kayn",
+                "Kennen",
+                "Khazix",
+                "Kindred",
+                "Kled",
+                "KogMaw",
+                "KSante",
+                "Leblanc",
+                "LeeSin",
+                "Leona",
+                "Lillia",
+                "Lissandra",
+                "Lucian",
+                "Lulu",
+                "Lux",
+                "Malphite",
+                "Malzahar",
+                "Maokai",
+                "MasterYi",
+                "Milio",
+                "MissFortune",
+                "MonkeyKing",
+                "Mordekaiser",
+                "Morgana",
+                "Naafiri",
+                "Nami",
+                "Nasus",
+                "Nautilus",
+                "Neeko",
+                "Nidalee",
+                "Nilah",
+                "Nocturne",
+                "Nunu",
+                "Olaf",
+                "Orianna",
+                "Ornn",
+                "Pantheon",
+                "Poppy",
+                "Pyke",
+                "Qiyana",
+                "Quinn",
+                "Rakan",
+                "Rammus",
+                "RekSai",
+                "Rell",
+                "Renata",
+                "Renekton",
+                "Rengar",
+                "Riven",
+                "Rumble",
+                "Ryze",
+                "Samira",
+                "Sejuani",
+                "Senna",
+                "Seraphine",
+                "Sett",
+                "Shaco",
+                "Shen",
+                "Shyvana",
+                "Singed",
+                "Sion",
+                "Sivir",
+                "Skarner",
+                "Smolder",
+                "Sona",
+                "Soraka",
+                "Swain",
+                "Sylas",
+                "Syndra",
+                "TahmKench",
+                "Taliyah",
+                "Talon",
+                "Taric",
+                "Teemo",
+                "Thresh",
+                "Tristana",
+                "Trundle",
+                "Tryndamere",
+                "TwistedFate",
+                "Twitch",
+                "Udyr",
+                "Urgot",
+                "Varus",
+                "Vayne",
+                "Veigar",
+                "Velkoz",
+                "Vex",
+                "Vi",
+                "Viego",
+                "Viktor",
+                "Vladimir",
+                "Volibear",
+                "Warwick",
+                "Xayah",
+                "Xerath",
+                "XinZhao",
+                "Yasuo",
+                "Yone",
+                "Yorick",
+                "Yuumi",
+                "Zac",
+                "Zed",
+                "Zeri",
+                "Ziggs",
+                "Zilean",
+                "Zoe",
+                "Zyra"
+            ]
+        },
+        "champion": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "id": {
+                    "$ref": "#/definitions/championID"
+                }
+            }
+        },
+        "badge": {
+            "type": "string",
+            "enum": [
+                "GOOD_COMMUNICATION",
+                "GOOD_MACRO",
+                "GOOD_MICRO"
+            ]
+        },
+        "review": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "authorUUID": {
+                    "type": "string"
+                },
+                "recieverUUID": {
+                    "type": "string"
+                },
+                "badges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/badge"
+                    }
+                },
+                "matchID": {
+                    "type": "string"
+                },
+                "grade": {
+                    "type": "string"
+                },
+                "champion": {
+                    "$ref": "#/definitions/champion"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "hasWon": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "championGrade": {
+            "type": "object",
+            "properties": {
+                "championID": {
+                    "type": "string"
+                },
+                "championName": {
+                    "type": "string"
+                },
+                "grade": {
+                    "type": "number"
+                },
+                "individualReviewsIDs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "checkm8Summoner": {
+            "type": "object",
+            "properties": {
+                "PUUID": {
+                    "type": "string"
+                },
+                "hasAnAccount": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string",
+                    "nullable": "true"
+                },
+                "globalGrade": {
+                    "type": "number",
+                    "nullable": "true"
+                },
+                "championGrades": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/championGrade"
+                    },
+                    "nullable": "true"
+                },
+                "givenReviewsIDs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "nullable": "true"
+                },
+                "recievedReviewsIDs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "nullable": "true"
+                },
+                "badges": {
+                    "type": "array",
+                    "nullable": "true",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "amount": {
+                                "type": "number"
+                            },
+                            "name": {
+                                "$ref": "#/definitions/badge"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "RiotSummoner": {
+            "type": "object",
+            "properties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "profileIconId": {
+                    "type": "integer"
+                },
+                "revisionDate": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "puuid": {
+                    "type": "string"
+                },
+                "summonerLevel": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

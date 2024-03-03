@@ -16,10 +16,10 @@ export type Champion = {
 
 export type Review = {
   id: string;
-  authorID: string;
-  badges?: BADGE_NAME[];
-  receiverID: string;
-  gameID: string;
+  authorUUID: string;
+  receiverUUID: string;
+  badges: BADGE_NAME[];
+  matchID: string;
   grade: number;
   champion: Champion;
   comment: string;
@@ -28,19 +28,20 @@ export type Review = {
 
 export type ChampionGrade = {
   championID: CHAMPION_ID;
-  name: string;
+  championName: string;
   grade: number;
   individualReviewsIDs: string[];
 };
 
 export type SummonerView = {
   PUUID: string;
+  hasAnAccount: boolean;
   name: string;
-  description?: string;
   tag: string;
-  globalGrade: number | null;
-  championGrades: ChampionGrade[];
-  givenReviewsIDs: string[];
-  recievedReviewsIDs: string[];
+  description?: string;
+  globalGrade?: number | null;
+  championGrades?: ChampionGrade[];
+  givenReviewsIDs?: string[];
+  recievedReviewsIDs?: string[];
   badges?: BadgesAmount[];
 };

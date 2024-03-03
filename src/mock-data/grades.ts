@@ -6,25 +6,25 @@ export const MOCK_GRADES: ChampionGrade[] = [
   {
     grade: 4.3,
     championID: CHAMPION_ID.CORKI,
-    name: "Corki",
+    championName: "Corki",
     individualReviewsIDs: [MOCK_REVIEWS_IDS[0]],
   },
   {
     grade: 2.1,
     championID: CHAMPION_ID.VLADIMIR,
-    name: "Vladimir",
+    championName: "Vladimir",
     individualReviewsIDs: [MOCK_REVIEWS_IDS[1]],
   },
   {
     grade: 5,
     championID: CHAMPION_ID.ZAC,
-    name: "Zac",
+    championName: "Zac",
     individualReviewsIDs: [MOCK_REVIEWS_IDS[2]],
   },
   {
     grade: 1.2,
     championID: CHAMPION_ID.AMUMU,
-    name: "Amumu",
+    championName: "Amumu",
     individualReviewsIDs: [],
   },
 ];
