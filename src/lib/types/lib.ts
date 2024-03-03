@@ -23,6 +23,7 @@ export type Review = {
   grade: number;
   champion: Champion;
   comment: string;
+  hasWon: boolean;
 };
 
 export type ChampionGrade = {

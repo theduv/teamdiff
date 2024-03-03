@@ -15,12 +15,12 @@ const BestChampsBase = () => {
   firstThreeChamps.splice(3);
 
   return (
-    <div className="bg-secondary items-center rounded-lg py-8 px-4 pr-12 justify-center flex flex-col space-y-8 h-full w-[300px]">
-      <div className="flex flex-col space-y-4">
+    <div className="bg-secondary items-center rounded-lg py-2 px-4 pr-12 justify-center flex flex-col space-y-8 h-full w-[300px]">
+      <div className="flex flex-col items-center justify-center space-y-2">
         {!!firstThreeChamps.length ? (
           <>
             {firstThreeChamps.map((champ) => (
-              <div className="flex space-x-4 bg-gray-300 items-center border border-gray-400 rounded-md shadow-md shadow-primary text-primary py-1 px-4">
+              <div className="flex space-x-4 items-center border border-primary rounded-md text-primary py-1 px-4">
                 <img
                   className="rounded-full border-2 border-black"
                   src={getChampionIconURL(champ.championID)}
