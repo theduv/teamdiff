@@ -1,12 +1,14 @@
 import { ChangeEvent, memo, useContext, useState } from "react";
 
 import { BadgesSelector } from "./BadgesSelector";
-// import { ChampionPicker } from "./ChampionPicker";
+import { IoSend } from "react-icons/io5";
 import { BADGE_NAME, CHAMPION_ID } from "../../../../hooks/enums/lib";
 import { StarRating } from "../../../../components/StarRating/StarRating";
 import { ModalRecentMatches } from "./ModalRecentMatches";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
+
+const SEND_BUTTON_ICON = 24;
 
 const NewReviewBase = () => {
   const { summoner } = useContext(SummonerPageContext);
@@ -62,12 +64,17 @@ const NewReviewBase = () => {
           </button>
         </div>
       </div>
-      <textarea
-        value={textValue}
-        onChange={onChangeTextArea}
-        className="bg-secondary h-full resize-none outline-none rounded-b-lg border-t border-t-gray-900 placeholder:text-primary items-center px-4 py-2"
-        placeholder="Add a message to your grade"
-      />
+      <div className="relative w-full">
+        <textarea
+          value={textValue}
+          onChange={onChangeTextArea}
+          className="bg-secondary min-h-[100px] h-full w-full resize-none outline-none rounded-b-lg border-t border-t-gray-900 placeholder:text-primary items-center px-4 py-2"
+          placeholder="Add a message to your grade"
+        />
+        <button className="absolute right-4 bottom-4 text-primary">
+          <IoSend size={SEND_BUTTON_ICON} />
+        </button>
+      </div>
       <ModalRecentMatches
         isOpen={isModalOpen}
         handleClose={() => setIsModalOpen(false)}

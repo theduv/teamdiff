@@ -66,12 +66,14 @@ const NewReviewBase = () => {
           {/* <ChampionPicker value={championValue} setValue={setChampionValue} /> */}
         </div>
       </div>
-      <textarea
-        value={textValue}
-        onChange={onChangeTextArea}
-        className="bg-gray-900 border border-1 resize-none border-gray-600 outline-none text-gray-200 rounded-b-xl placeholder:text-gray-200 items-center flex justify-center px-4 py-2"
-        placeholder="Add a message to your grade"
-      />
+      <div>
+        <textarea
+          value={textValue}
+          onChange={onChangeTextArea}
+          className="bg-gray-900 border border-1 resize-none border-gray-600 outline-none text-gray-200 rounded-b-xl placeholder:text-gray-200 items-center flex justify-center px-4 py-2"
+          placeholder="Add a message to your grade"
+        />
+      </div>
       <ModalRecentMatches
         isOpen={isModalOpen}
         handleClose={() => setIsModalOpen(false)}
