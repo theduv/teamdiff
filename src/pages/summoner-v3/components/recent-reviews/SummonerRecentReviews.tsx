@@ -7,7 +7,7 @@ const SummonerRecentReviewsBase = () => {
   const { lastReviews } = useContext(SummonerPageContext);
 
   return (
-    <div className="flex flex-col p-4 space-y-8 w-full items-center bg-secondary rounded-lg text-primary h-full overflow-y-auto">
+    <div className="flex flex-col p-4 space-y-8 w-full items-center bg-secondary rounded-lg text-primary overflow-y-auto h-full">
       <div className="flex flex-col space-y-4">
         {!!lastReviews.length ? (
           lastReviews?.map((review) => (

@@ -11,8 +11,8 @@ const SummonerPageBase = () => {
   if (!summoner) return <div>Error while retrieving this summoner.</div>;
 
   return (
-    <div className="px-96 h-full py-4">
-      <div className="bg-primary w-full space-y-2 h-full overflow-y-auto">
+    <div className="px-96 h-[100vh] py-4">
+      <div className="flex flex-col bg-primary w-full space-y-2 h-full">
         <SummonerSummary />
         <NewReview />
         <SummonerRecentReviews />
