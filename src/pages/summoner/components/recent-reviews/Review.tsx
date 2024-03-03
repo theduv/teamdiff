@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Link } from "wouter";
 
-import { Review as ReviewType } from "../../../../types/lib";
+import { Review as ReviewType } from "../../../../lib/types/lib";
 import { useSummonerByID } from "../../../../hooks/queries/summoner";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 import { StarRating } from "../../../../components/StarRating/StarRating";

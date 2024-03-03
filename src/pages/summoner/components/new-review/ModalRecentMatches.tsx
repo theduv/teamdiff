@@ -5,9 +5,9 @@ import { Modal } from "../../../../components/Modal/Modal";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { useGetSameGameHistoryData } from "../../../../hooks/queries/history";
 import { AuthContext } from "../../../../contexts/Auth";
-import { GameMatchInfo, Participant } from "../../../../types/riot-api";
+import { GameMatchInfo, Participant } from "../../../../lib/types/riot-api";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
-import { CHAMPION_ID } from "../../../../enums/lib";
+import { CHAMPION_ID } from "../../../../hooks/enums/lib";
 
 const getOpponentCharacter = ({
   matchInfos,

@@ -1,5 +1,5 @@
-import { CHAMPION_ID } from "../enums/lib";
-import { Review } from "../types/lib";
+import { CHAMPION_ID } from "../hooks/enums/lib";
+import { Review } from "../lib/types/lib";
 import { MOCK_REVIEWS_IDS, MOCK_SUMMONER_IDS } from "./ids";
 
 export const MOCK_REVIEWS: Review[] = [

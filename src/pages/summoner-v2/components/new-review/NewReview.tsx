@@ -2,7 +2,7 @@ import { ChangeEvent, memo, useContext, useState } from "react";
 
 import { BadgesSelector } from "./BadgesSelector";
 // import { ChampionPicker } from "./ChampionPicker";
-import { BADGE_NAME, CHAMPION_ID } from "../../../../enums/lib";
+import { BADGE_NAME, CHAMPION_ID } from "../../../../hooks/enums/lib";
 import { StarRating } from "../../../../components/StarRating/StarRating";
 import { ModalRecentMatches } from "./ModalRecentMatches";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";

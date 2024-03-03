@@ -9,7 +9,7 @@ import {
 } from "react";
 
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
-import { CHAMPION_ID } from "../../../../enums/lib";
+import { CHAMPION_ID } from "../../../../hooks/enums/lib";
 
 type ChampionPickerProps = {
   value: CHAMPION_ID;

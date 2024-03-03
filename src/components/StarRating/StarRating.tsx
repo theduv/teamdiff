@@ -1,6 +1,6 @@
 import { memo } from "react";
 import StarRatings from "react-star-ratings";
-import { STAR_COLOR, STAR_EMPTY_COLOR } from "../../constants/lib";
+import { STAR_COLOR, STAR_EMPTY_COLOR } from "../../lib/constants/lib";
 
 type STAR_RATING_SIZE = "xsmall" | "big" | "small";
 

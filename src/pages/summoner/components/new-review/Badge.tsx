@@ -5,7 +5,7 @@ import { LiaBrainSolid } from "react-icons/lia";
 import { LuSwords } from "react-icons/lu";
 import { Tooltip } from "react-tooltip";
 
-import { BADGE_NAME } from "../../../../enums/lib";
+import { BADGE_NAME } from "../../../../hooks/enums/lib";
 import { BADGE_TOOLTIPS } from "./BadgeTooltips";
 
 type BadgeProps = {

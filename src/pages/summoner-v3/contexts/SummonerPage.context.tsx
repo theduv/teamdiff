@@ -1,5 +1,5 @@
 import { ReactNode, createContext } from "react";
-import { Review, SummonerView } from "../../../types/lib";
+import { Review, SummonerView } from "../../../lib/types/lib";
 import { useSummonerByName } from "../../../hooks/queries/summoner";
 import { useGetReviewsByIDs } from "../../../hooks/queries/reviews";
 

@@ -1,4 +1,4 @@
-import { BADGE_NAME, CHAMPION_ID } from "../enums/lib";
+import { BADGE_NAME, CHAMPION_ID } from "../../hooks/enums/lib";
 
 export type BadgesAmount = {
   name: BADGE_NAME;

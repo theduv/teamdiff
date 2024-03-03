@@ -1,5 +1,5 @@
-import { CHAMPION_ID } from "../enums/lib";
-import { ChampionGrade } from "../types/lib";
+import { CHAMPION_ID } from "../hooks/enums/lib";
+import { ChampionGrade } from "../lib/types/lib";
 import { MOCK_REVIEWS_IDS } from "./ids";
 
 export const MOCK_GRADES: ChampionGrade[] = [

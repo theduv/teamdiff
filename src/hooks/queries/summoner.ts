@@ -1,18 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { MOCK_SUMMONERS } from "../../mock-data/summoners";
 import axios from "axios";
+import { GetSummonerByPUUIDResponse } from "../../lib/types/riot-api";
 
 export const useGetRiotSummonerByPUUID = (puuid: string | undefined | null) =>
   useQuery({
     queryKey: ["summoner-riot-puuid", puuid],
     queryFn: async () => {
-      if (!puuid) {
-        return { data: null };
-      }
       const res = await axios.get(
         `${import.meta.env.VITE_API_URL}/riot/summoner/${puuid}`
       );
-      return res.data;
+      return res.data as GetSummonerByPUUIDResponse;
     },
   });
 

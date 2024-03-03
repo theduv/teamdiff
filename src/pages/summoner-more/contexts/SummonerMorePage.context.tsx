@@ -1,5 +1,5 @@
 import { createContext, ReactNode } from "react";
-import { SummonerView } from "../../../types/lib";
+import { SummonerView } from "../../../lib/types/lib";
 import { useParams } from "wouter";
 import { isSummonerNameAndTagValid } from "../../../lib/functions/isSummonerNameAndTagValid";
 import { useSummonerByName } from "../../../hooks/queries/summoner";

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { Review } from "../../types/lib";
+import { Review } from "../../lib/types/lib";
 import { MOCK_REVIEWS } from "../../mock-data/reviews";
 
 export const useGetReviewsByIDs = ({ reviewsIDs }: { reviewsIDs: string[] }) =>

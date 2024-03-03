@@ -1,7 +1,7 @@
 import { ReactNode, createContext } from "react";
 
 import { MOCK_SUMMONERS } from "../mock-data/summoners";
-import { SummonerView } from "../types/lib";
+import { SummonerView } from "../lib/types/lib";
 
 type AuthContextValue = {
   summoner?: SummonerView;

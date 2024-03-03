@@ -3,29 +3,32 @@ import { FaStar } from "react-icons/fa";
 
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { BestChamps } from "./best-champs/BestChamps";
-import { STAR_COLOR } from "../../../../constants/lib";
+import { STAR_COLOR } from "../../../../lib/constants/lib";
 import { BadgesZone } from "./badges-zone/BadgesZone";
+import { useGetRiotSummonerByPUUID } from "../../../../hooks/queries/summoner";
+import { getSummonerIconURL } from "../../../../lib/functions/getSummonerIconURL";
 
 const SUMMONER_ICON_SIZE = 102;
 
 const SummonerSummaryBase = () => {
   const { summoner } = useContext(SummonerPageContext);
+  const { data: riotSummoner } = useGetRiotSummonerByPUUID(summoner?.PUUID);
 
-  if (!summoner) return null;
+  if (!summoner || !riotSummoner) return null;
 
   const firstThreeGrades = [...summoner.championGrades];
   firstThreeGrades.splice(3);
 
   return (
-    <div className="flex space-x-4 py-2 w-full rounded-lg text-primary">
-      <div className="flex flex-col p-2 rounded-lg bg-secondary w-full space-y-2">
+    <div className="flex space-x-2 w-full rounded-lg text-primary">
+      <div className="flex flex-col p-2 rounded-lg bg-secondary w-full space-y-4">
         <BadgesZone />
         <div className="flex space-x-2">
           <div className="flex flex-col space-y-1">
             <div className="flex flex-col space-x-2 h-full">
               <div className="relative">
                 <img
-                  src={summoner.iconURL}
+                  src={getSummonerIconURL(riotSummoner.profileIconId)}
                   width={SUMMONER_ICON_SIZE}
                   height={SUMMONER_ICON_SIZE}
                   className="border-4 border-primary h-full max-w-fit"

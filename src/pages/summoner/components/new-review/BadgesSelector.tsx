@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, memo } from "react";
 
 import { Badge } from "./Badge";
-import { BADGE_NAME } from "../../../../enums/lib";
+import { BADGE_NAME } from "../../../../hooks/enums/lib";
 
 type BadgesSelectorProps = {
   value: BADGE_NAME[];

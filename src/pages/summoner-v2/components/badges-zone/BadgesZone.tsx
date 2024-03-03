@@ -1,6 +1,6 @@
 import { memo, useContext } from "react";
 
-import { BADGE_LABEL, BADGE_NAME } from "../../../../enums/lib";
+import { BADGE_LABEL, BADGE_NAME } from "../../../../hooks/enums/lib";
 import { Badge } from "../new-review/Badge";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 

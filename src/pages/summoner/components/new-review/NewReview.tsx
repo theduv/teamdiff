@@ -2,7 +2,7 @@ import { ChangeEvent, memo, useContext, useState } from "react";
 
 import { BadgesSelector } from "./BadgesSelector";
 // import { ChampionPicker } from "./ChampionPicker";
-import { BADGE_NAME, CHAMPION_ID } from "../../../../enums/lib";
+import { BADGE_NAME, CHAMPION_ID } from "../../../../hooks/enums/lib";
 import { StarRating } from "../../../../components/StarRating/StarRating";
 import { ModalRecentMatches } from "./ModalRecentMatches";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
@@ -31,7 +31,7 @@ const NewReviewBase = () => {
   };
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full max-w-[900px]">
       {matchValue && (
         <div className="flex justify-center">
           <div className="flex space-x-4 items-center bg-gray-500 py-1 px-6 rounded-t-lg ">
@@ -48,7 +48,7 @@ const NewReviewBase = () => {
           </div>
         </div>
       )}
-      <div className="flex-1 flex rounded-t-2xl px-4 py-2 justify-between items-center">
+      <div className="bg-gray-600 flex-1 flex rounded-t-2xl px-4 py-2 justify-between items-center">
         <div className="flex flex-col">
           <StarRating
             onChangeRating={changeRatingHandler}
@@ -69,7 +69,7 @@ const NewReviewBase = () => {
       <textarea
         value={textValue}
         onChange={onChangeTextArea}
-        className="border border-1 resize-none border-gray-600 outline-none text-gray-200 rounded-b-xl placeholder:text-gray-200 items-center flex justify-center px-4 py-2"
+        className="bg-gray-900 border border-1 resize-none border-gray-600 outline-none text-gray-200 rounded-b-xl placeholder:text-gray-200 items-center flex justify-center px-4 py-2"
         placeholder="Add a message to your grade"
       />
       <ModalRecentMatches

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-import { GameMatch } from "../../types/riot-api";
+import { GameMatch } from "../../lib/types/riot-api";
 
 const BASE_HISTORY_URL = `${import.meta.env.VITE_API_URL}/riot/history`;
 

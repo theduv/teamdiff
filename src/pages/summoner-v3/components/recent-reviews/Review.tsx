@@ -1,16 +1,17 @@
 import { memo } from "react";
 import { Link } from "wouter";
 
-import { Review as ReviewType } from "../../../../types/lib";
+import { Review as ReviewType } from "../../../../lib/types/lib";
 import {
   useGetRiotSummonerByPUUID,
   useSummonerByID,
 } from "../../../../hooks/queries/summoner";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 import { StarRating } from "../../../../components/StarRating/StarRating";
+import { getSummonerIconURL } from "../../../../lib/functions/getSummonerIconURL";
 
 const CHAMPION_ICON_SIZE = 24;
-const SUMMONER_ICON_SIZE = 64;
+const SUMMONER_ICON_SIZE = 48;
 
 type ReviewProps = {
   review: ReviewType;
@@ -18,16 +19,14 @@ type ReviewProps = {
 
 const ReviewBase = ({ review }: ReviewProps) => {
   const { data: summoner } = useSummonerByID(review.authorID);
-  const res = useGetRiotSummonerByPUUID(summoner?.PUUID);
+  const { data: riotSummoner } = useGetRiotSummonerByPUUID(summoner?.PUUID);
 
-  console.log(res);
-
-  if (!summoner) return null;
+  if (!summoner || !riotSummoner) return null;
 
   return (
     <div className="flex items-center space-x-4 rounded-lg">
       <img
-        // src={data.}
+        src={getSummonerIconURL(riotSummoner.profileIconId)}
         width={SUMMONER_ICON_SIZE}
         height={SUMMONER_ICON_SIZE}
         className="rounded-full max-w-fit"
