@@ -9,6 +9,7 @@ import {
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 import { StarRating } from "../../../../components/StarRating/StarRating";
 import { getSummonerIconURL } from "../../../../lib/functions/getSummonerIconURL";
+import clsx from "clsx";
 
 const CHAMPION_ICON_SIZE = 24;
 const SUMMONER_ICON_SIZE = 48;
@@ -24,7 +25,12 @@ const ReviewBase = ({ review }: ReviewProps) => {
   if (!summoner || !riotSummoner) return null;
 
   return (
-    <div className="flex items-center space-x-4 p-4 rounded-lg w-full bg-secondary border-primary">
+    <div
+      className={clsx("flex items-center space-x-4 p-4 rounded-lg w-full", {
+        "bg-red-100": !review.hasWon,
+        "bg-green-100": review.hasWon,
+      })}
+    >
       <img
         src={getSummonerIconURL(riotSummoner.profileIconId)}
         width={SUMMONER_ICON_SIZE}

@@ -18,7 +18,7 @@ const BadgesSelectorBase = ({ value, setValue }: BadgesSelectorProps) => {
   };
 
   return (
-    <div className="flex space-x-1 items-center">
+    <div className="flex space-x-2 items-center">
       {Object.values(BADGE_NAME).map((badgeName) => (
         <Badge
           key={`badge-${badgeName}`}

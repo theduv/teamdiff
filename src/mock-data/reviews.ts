@@ -15,6 +15,7 @@ export const MOCK_REVIEWS: Review[] = [
       name: "Corki",
       id: CHAMPION_ID.CORKI,
     },
+    hasWon: true,
     comment:
       "Super trop fort ton Corki !! Tu peux m'épouser stp ? Comme ça on fait des bébés on vit ensemble etc etc",
   },
@@ -26,6 +27,7 @@ export const MOCK_REVIEWS: Review[] = [
       "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
     gameID: "02",
     grade: 2,
+    hasWon: false,
     champion: {
       name: "Vladimir",
       id: CHAMPION_ID.VLADIMIR,
@@ -45,6 +47,7 @@ export const MOCK_REVIEWS: Review[] = [
       name: "Zac",
       id: CHAMPION_ID.ZAC,
     },
+    hasWon: true,
     comment:
       "OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!!",
   },

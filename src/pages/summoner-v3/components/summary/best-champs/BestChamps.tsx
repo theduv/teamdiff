@@ -15,12 +15,12 @@ const BestChampsBase = () => {
   firstThreeChamps.splice(3);
 
   return (
-    <div className="bg-secondary items-center rounded-lg py-2 px-4 pr-12 justify-center flex flex-col space-y-8 h-full w-[300px]">
-      <div className="flex flex-col items-center justify-center space-y-2">
+    <div className="items-center rounded-lg  justify-center flex flex-col space-y-8 h-full  ">
+      <div className="flex flex-col items-center w-full space-y-1 h-full">
         {!!firstThreeChamps.length ? (
           <>
             {firstThreeChamps.map((champ) => (
-              <div className="flex space-x-4 items-center border border-primary rounded-md text-primary py-1 px-4">
+              <div className="bg-secondary w-full flex items-center border border-primary rounded-md text-primary py-1 px-4">
                 <img
                   className="rounded-full border-2 border-black"
                   src={getChampionIconURL(champ.championID)}
@@ -33,8 +33,13 @@ const BestChampsBase = () => {
                 </div>
               </div>
             ))}
-            {summoner.championGrades.length > 3 && (
-              <Link href={`/summoner`}>see more...</Link>
+            {summoner.championGrades.length > 2 && (
+              <Link
+                href={`/summoner`}
+                className="bg-secondary px-2 rounded-lg w-full text-center italic text-blue-900"
+              >
+                see more {">"}
+              </Link>
             )}
           </>
         ) : (
