@@ -2,6 +2,7 @@ import Fastify from "fastify";
 import { RiotApi, Constants, LolApi } from "twisted";
 import cors from "@fastify/cors";
 import "dotenv/config";
+import axios from "axios";
 
 const apiLoL = new LolApi({
   key: process.env.RIOT_API_KEY,
@@ -82,9 +83,15 @@ fastify.get("/riot/history/match/:matchId", async (req, res) => {
 fastify.get("/riot/summoner/:puuid", async (req, res) => {
   const { puuid } = req.params;
   if (!puuid) throw new error();
-  const response = await apiLoL.Summoner.getByPUUID(puuid, "euw");
-  console.log({ response });
-  res.send(response);
+  const response = await axios.get(
+    `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${process.env.RIOT_API_KEY}`,
+    {
+      headers: {
+        Origin: "https://developer.riotgames.com",
+      },
+    }
+  );
+  res.send(response.data);
 });
 
 try {
