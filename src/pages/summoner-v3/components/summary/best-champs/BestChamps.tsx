@@ -1,8 +1,10 @@
 import { memo, useContext } from "react";
+import { Link } from "wouter";
+import { FaChevronRight } from "react-icons/fa";
+
 import { SummonerPageContext } from "../../../contexts/SummonerPage.context";
 import { getChampionIconURL } from "../../../../../lib/functions/getChampionIconURL";
 import { StarRating } from "../../../../../components/StarRating/StarRating";
-import { Link } from "wouter";
 
 const CHAMPION_ICON_SIZE = 32;
 
@@ -36,9 +38,10 @@ const BestChampsBase = () => {
             {summoner.championGrades.length > 2 && (
               <Link
                 href={`/summoner`}
-                className="bg-secondary px-2 rounded-lg w-full text-center italic text-blue-900"
+                className="bg-secondary px-2 h-full rounded-lg w-full text-center text-primary font-bold flex  items-center justify-center space-x-2"
               >
-                see more {">"}
+                <span>see more</span>
+                <FaChevronRight size={12} />
               </Link>
             )}
           </>
