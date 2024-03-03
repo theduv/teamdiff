@@ -4,8 +4,9 @@ import { Review } from "./Review";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 
 const SummonerRecentReviewsBase = () => {
-  const { lastReviews } = useContext(SummonerPageContext);
+  let { lastReviews } = useContext(SummonerPageContext);
 
+  lastReviews = [...lastReviews, ...lastReviews];
   return (
     <div className="flex flex-col space-y-8 w-full items-centerrounded-lg text-primary overflow-y-auto h-full">
       <div className="flex flex-col space-y-2 w-full">

@@ -45,15 +45,19 @@ const ModalBase = ({
       onRequestClose={handleClose}
       style={modalStyles}
     >
-      <div className="flex justify-between items-center">
-        <div />
-        {<span className="text-xl font-bold text-gray-200">{title}</span>}
-        <button onClick={handleClose}>
-          <IoIosClose size={32} color={"#f3f4f6"} />
-        </button>
+      <div className="flex flex-col space-y-4">
+        <div className="space-y-2">
+          <div className="flex justify-between items-center">
+            <div />
+            {<span className="text-xl font-bold text-gray-200">{title}</span>}
+            <button onClick={handleClose}>
+              <IoIosClose size={32} color={"#f3f4f6"} />
+            </button>
+          </div>
+          <div className="w-full h-[1px] bg-gray-50" />
+        </div>
+        {children}
       </div>
-      <div className="w-full h-[1px] bg-gray-50" />
-      {children}
     </ReactModal>
   );
 };

@@ -38,9 +38,8 @@ const BadgeBase = ({
       data-tooltip-id={element}
       data-tooltip-content={BADGE_LABEL[element]}
       className={clsx("rounded-full p-2", {
-        "text-secondary": disabled,
         "border border-1 border-gray-900": !disabled,
-        "bg-yellow-500": isSelected && !disabled,
+        "bg-yellow-300": isSelected && !disabled,
       })}
       onClick={onClick}
       disabled={disabled}

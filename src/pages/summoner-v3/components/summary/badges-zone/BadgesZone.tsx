@@ -13,10 +13,10 @@ const BadgesZoneBase = () => {
         {Object.values(BADGE_NAME).map((badge) => (
           <div
             key={`badge-${badge}`}
-            className="flex items-center space-x-1 rounded-xl py-[1px] px-[8px] bg-primary"
+            className="flex items-center space-x-1 rounded-xl py-[1px] px-[8px] text-primary bg-gray-200 shadow-sm shadow-primary border border-primary "
           >
             <Badge element={badge} disabled={true} />
-            <span className="text-gray-200">
+            <span>
               {summoner?.badges?.find(
                 (currentBadge) => currentBadge.name === badge
               )?.amount ?? 0}

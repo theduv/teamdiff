@@ -66,8 +66,8 @@ const ModalRecentMatchesBase = ({
 
   return (
     <Modal isOpen={isOpen} handleClose={handleClose} title="Recent games">
-      <div className="flex items-center justify-center my-auto">
-        <div className="flex flex-col space-y-2 items-center w-1/2">
+      <div className="flex items-center justify-center my-auto h-full">
+        <div className="flex flex-col space-y-2 w-1/2 h-full ">
           {commonMatchesData?.map((match) => (
             <button
               key={`match-${match.id}`}

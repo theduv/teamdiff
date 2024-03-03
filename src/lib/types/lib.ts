@@ -38,10 +38,10 @@ export type SummonerView = {
   hasAnAccount: boolean;
   name: string;
   tag: string;
-  description?: string;
-  globalGrade?: number | null;
-  championGrades?: ChampionGrade[];
-  givenReviewsIDs?: string[];
-  recievedReviewsIDs?: string[];
-  badges?: BadgesAmount[];
+  description: string | null;
+  globalGrade: number | null;
+  championGrades: ChampionGrade[] | null;
+  givenReviewsIDs: string[] | null;
+  recievedReviewsIDs: string[] | null;
+  badges: BadgesAmount[] | null;
 };

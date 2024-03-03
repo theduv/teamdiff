@@ -12,20 +12,20 @@ const CHAMPION_ICON_SIZE = 32;
 const BestChampsBase = () => {
   const { summoner } = useContext(SummonerPageContext);
 
-  if (!summoner) return null;
+  if (!summoner || !summoner.championGrades) return null;
 
-  const firstThreeChamps = [...summoner?.championGrades];
+  const firstThreeChamps = [...summoner.championGrades];
   firstThreeChamps.splice(3);
 
   return (
-    <div className="items-center rounded-lg  justify-center flex flex-col space-y-8 h-full  ">
+    <div className="items-center rounded-lg justify-center flex flex-col space-y-8 h-full  ">
       <div className="flex flex-col items-center w-full space-y-1 h-full">
         {!!firstThreeChamps.length ? (
           <>
             {firstThreeChamps.map((champ, index) => (
               <div
                 className={clsx(
-                  "bg-secondary w-full flex items-center text-primary py-1 px-4 space-x-2",
+                  "bg-gray-100 w-full flex items-center text-primary py-1 px-4 space-x-2",
                   {
                     "rounded-t-lg": index === 0 && firstThreeChamps.length > 1,
                     "rounded-b-lg":
@@ -50,7 +50,7 @@ const BestChampsBase = () => {
             {summoner.championGrades.length > 3 && (
               <Link
                 href={`/summoner`}
-                className="bg-secondary px-2 h-full rounded-b-lg w-full text-center text-primary flex items-center justify-center space-x-2"
+                className="bg-gray-100 px-2 h-full rounded-b-lg w-full text-center text-primary flex items-center justify-center space-x-2"
               >
                 <span>see more</span>
                 <FaChevronRight size={12} />

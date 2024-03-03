@@ -30,7 +30,7 @@ const NewReviewBase = () => {
   };
 
   return (
-    <div className="flex flex-col bg-secondary rounded-lg">
+    <div className="flex flex-col bg-blue-100 rounded-lg text-primary">
       <div className="flex px-4 py-2 justify-between items-center">
         <div className="flex flex-col">
           <StarRating
@@ -40,14 +40,14 @@ const NewReviewBase = () => {
         </div>
         {matchValue && (
           <div className="flex justify-center">
-            <div className="flex space-x-4 items-center bg-gray-700 py-1 px-6 rounded-lg ">
+            <div className="flex space-x-4 items-center py-1 px-6 rounded-lg ">
               <img
                 className="rounded-full"
                 src={getChampionIconURL(matchValue.champion)}
                 width={32}
                 height={32}
               />
-              <span className="text-xl text-gray-200">
+              <span className="text-xl">
                 Reviewing <span className="font-bold">{summoner?.name}</span> as{" "}
                 {matchValue.champion}
               </span>
@@ -68,7 +68,7 @@ const NewReviewBase = () => {
         <textarea
           value={textValue}
           onChange={onChangeTextArea}
-          className="bg-secondary min-h-[100px] h-full w-full resize-none outline-none rounded-b-lg border-t border-t-gray-900 placeholder:text-primary items-center px-4 py-2"
+          className="bg-blue-50 min-h-[100px] h-full w-full resize-none outline-none rounded-b-lg border-t border-t-gray-900 placeholder:text-primary items-center px-4 py-2"
           placeholder="Add a message to your grade"
         />
         <button className="absolute right-4 bottom-4 text-primary">

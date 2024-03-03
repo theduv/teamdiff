@@ -21,7 +21,7 @@ const SummonerSummaryBase = () => {
 
   return (
     <div className="flex justify-between space-x-2 w-full rounded-lg text-primary">
-      <div className="flex flex-col p-2 rounded-lg bg-secondary w-full space-y-2 py-3 px-3">
+      <div className="flex flex-col p-2 rounded-lg bg-gray-100 w-full space-y-2 py-3 px-3">
         <BadgesZone />
         <div className="flex space-x-2">
           <div className="flex flex-col space-y-1">
@@ -33,14 +33,16 @@ const SummonerSummaryBase = () => {
                   height={SUMMONER_ICON_SIZE}
                   className="border-4 border-primary h-full max-w-fit"
                 />
-                <div className="flex items-center bottom-0 justify-center w-full absolute rounded-t-lg">
-                  <div className="flex space-x-1 items-center justify-center px-2 py-[2px] bg-black rounded-t-lg">
-                    <FaStar color={STAR_COLOR} size={12} />
-                    <h2 className="text-sm font-bold text-secondary">
-                      {summoner.globalGrade}
-                    </h2>
+                {summoner.globalGrade && (
+                  <div className="flex items-center bottom-0 justify-center w-full absolute rounded-t-lg">
+                    <div className="flex space-x-1 items-center justify-center px-2 py-[2px] bg-black rounded-t-lg">
+                      <FaStar color={STAR_COLOR} size={12} />
+                      <h2 className="text-sm font-bold text-secondary">
+                        {summoner.globalGrade}
+                      </h2>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>

@@ -80,6 +80,31 @@ fastify.get("/riot/history/match/:matchId", async (req, res) => {
   res.send(response.response);
 });
 
+fastify.get("/riot/summoner/:summonerName/:summonerTag", async (req, res) => {
+  const { summonerName, summonerTag } = req.params;
+  if (!summonerName || !summonerTag) {
+    throw new Error();
+  }
+  const uuidCall = await apiRiot.Account.getByRiotId(
+    summonerName,
+    summonerTag,
+    Constants.RegionGroups.EUROPE
+  );
+  const puuid = uuidCall.response.puuid;
+  return {
+    PUUID: puuid,
+    hasAnAccount: false,
+    name: summonerName,
+    tag: summonerTag,
+    description: null,
+    globalGrade: null,
+    championGrades: null,
+    recievedReviewsIDs: null,
+    givenReviewsIDs: null,
+    badges: [],
+  };
+});
+
 fastify.get("/riot/summoner/:puuid", async (req, res) => {
   const { puuid } = req.params;
   if (!puuid) throw new error();

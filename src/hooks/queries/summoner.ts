@@ -21,13 +21,21 @@ export const useSummonerByName = (summonerName: string, summonerTag: string) =>
       // TODO: call to back to retrieve infos
       let res = null;
       if (import.meta.env.VITE_ENVIRONMENT === "local") {
-        res =
-          MOCK_SUMMONERS.find(
-            (summoner) =>
-              summoner.name.toLocaleLowerCase() ===
-                summonerName.toLocaleLowerCase() &&
-              summonerTag.toLowerCase() === summoner.tag.toLocaleLowerCase()
-          ) ?? null;
+        res = MOCK_SUMMONERS.find(
+          (summoner) =>
+            summoner.name.toLocaleLowerCase() ===
+              summonerName.toLocaleLowerCase() &&
+            summonerTag.toLowerCase() === summoner.tag.toLocaleLowerCase()
+        );
+        if (!res) {
+          const data = await axios.get(
+            `${
+              import.meta.env.VITE_API_URL
+            }/riot/summoner/${summonerName}/${summonerTag}`
+          );
+          console.log(data);
+          return data.data;
+        }
       }
       return res;
     },

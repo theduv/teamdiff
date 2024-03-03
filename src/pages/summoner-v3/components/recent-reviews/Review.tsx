@@ -46,20 +46,23 @@ const ReviewBase = ({ review }: ReviewProps) => {
             height={CHAMPION_ICON_SIZE}
           />
           <div className="flex flex-col">
-            <div className="flex items-center space-x-2">
-              <img
-                src={getSummonerIconURL(riotSummoner.profileIconId)}
-                width={SUMMONER_ICON_SIZE}
-                height={SUMMONER_ICON_SIZE}
-                className="rounded-full max-w-fit"
-              />
+            <div className="flex flex-col">
+              <Link
+                className="flex space-x-2"
+                href={`/summoner/${summoner.name}-${summoner.tag}`}
+              >
+                <img
+                  src={getSummonerIconURL(riotSummoner.profileIconId)}
+                  width={SUMMONER_ICON_SIZE}
+                  height={SUMMONER_ICON_SIZE}
+                  className="rounded-full max-w-fit"
+                />
+                <h2 className="font-bold text-xl">
+                  {summoner.name}#{summoner.tag}
+                </h2>
+              </Link>
               <StarRating rating={review.grade} size={"xsmall"} />
             </div>
-            <Link href={`/summoner/${summoner.name}-${summoner.tag}`}>
-              <h2 className="font-bold text-xl">
-                {summoner.name}#{summoner.tag}
-              </h2>
-            </Link>
             <div className="flex items-center justify-between space-x-2">
               <span>{review.comment}</span>
             </div>
