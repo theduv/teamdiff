@@ -26,6 +26,10 @@ const SummaryBase = () => {
           {summoner.name}#{summoner.tag}
         </span>
       </div>
+      <input
+        className="rounded-lg px-4 py-2"
+        placeholder="Search for a champion..."
+      />
       {summoner.championGrades ? (
         <div className="flex flex-col space-y-4 justify-center">
           {summoner.championGrades.map((championGrade) => (
