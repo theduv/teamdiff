@@ -20,7 +20,7 @@ const SummonerSummaryBase = () => {
   firstThreeGrades.splice(3);
 
   return (
-    <div className="flex justify-between space-x-2 w-full rounded-lg text-primary">
+    <div className="flex justify-between flex-col md:flex-row md:space-x-2 sm:space-x-0 w-full rounded-lg text-primary">
       <div className="flex flex-col p-2 rounded-lg bg-gray-100 w-full space-y-2 py-3 px-3">
         <BadgesZone />
         <div className="flex space-x-2">
