@@ -5,6 +5,7 @@ import { FaChevronRight } from "react-icons/fa";
 import { SummonerPageContext } from "../../../contexts/SummonerPage.context";
 import { getChampionIconURL } from "../../../../../lib/functions/getChampionIconURL";
 import { StarRating } from "../../../../../components/StarRating/StarRating";
+import clsx from "clsx";
 
 const CHAMPION_ICON_SIZE = 32;
 
@@ -21,8 +22,18 @@ const BestChampsBase = () => {
       <div className="flex flex-col items-center w-full space-y-1 h-full">
         {!!firstThreeChamps.length ? (
           <>
-            {firstThreeChamps.map((champ) => (
-              <div className="bg-secondary w-full flex items-center border border-primary rounded-md text-primary py-1 px-4">
+            {firstThreeChamps.map((champ, index) => (
+              <div
+                className={clsx(
+                  "bg-secondary w-full flex items-center   text-primary py-1 px-4",
+                  {
+                    "rounded-t-lg": index === 0 && firstThreeChamps.length > 1,
+                    "rounded-b-lg":
+                      index === firstThreeChamps.length - 1 &&
+                      summoner.championGrades.length < 3,
+                  }
+                )}
+              >
                 <img
                   className="rounded-full border-2 border-black"
                   src={getChampionIconURL(champ.championID)}
@@ -38,7 +49,7 @@ const BestChampsBase = () => {
             {summoner.championGrades.length > 2 && (
               <Link
                 href={`/summoner`}
-                className="bg-secondary px-2 h-full rounded-lg w-full text-center text-primary font-bold flex  items-center justify-center space-x-2"
+                className="bg-secondary px-2 h-full rounded-b-lg w-full text-center text-primary flex items-center justify-center space-x-2"
               >
                 <span>see more</span>
                 <FaChevronRight size={12} />
