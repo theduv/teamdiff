@@ -11,8 +11,8 @@ import { StarRating } from "../../../../components/StarRating/StarRating";
 import { getSummonerIconURL } from "../../../../lib/functions/getSummonerIconURL";
 import clsx from "clsx";
 
-const CHAMPION_ICON_SIZE = 24;
-const SUMMONER_ICON_SIZE = 48;
+const CHAMPION_ICON_SIZE = 48;
+const SUMMONER_ICON_SIZE = 24;
 
 type ReviewProps = {
   review: ReviewType;
@@ -32,26 +32,29 @@ const ReviewBase = ({ review }: ReviewProps) => {
       })}
     >
       <img
-        src={getSummonerIconURL(riotSummoner.profileIconId)}
-        width={SUMMONER_ICON_SIZE}
-        height={SUMMONER_ICON_SIZE}
-        className="rounded-full max-w-fit"
+        src={getChampionIconURL(review.champion.id)}
+        className="rounded-full"
+        width={CHAMPION_ICON_SIZE}
+        height={CHAMPION_ICON_SIZE}
       />
       <div className="flex flex-col">
-        <div className="flex items-center space-x-2">
+        <Link
+          href={`/summoner/${summoner.name}-${summoner.tag}`}
+          className="flex space-x-2"
+        >
           <img
-            src={getChampionIconURL(review.champion.id)}
-            className="rounded-full"
-            width={CHAMPION_ICON_SIZE}
-            height={CHAMPION_ICON_SIZE}
+            src={getSummonerIconURL(riotSummoner.profileIconId)}
+            width={SUMMONER_ICON_SIZE}
+            height={SUMMONER_ICON_SIZE}
+            className="rounded-full max-w-fit"
           />
-          <StarRating rating={review.grade} size={"xsmall"} />
-        </div>
-        <Link href={`/summoner/${summoner.name}-${summoner.tag}`}>
-          <h2 className="font-bold text-xl">
+          <h2 className="font-bold text-lg">
             {summoner.name}#{summoner.tag}
           </h2>
         </Link>
+        <div className="flex items-center space-x-2">
+          <StarRating rating={review.grade} size={"xsmall"} />
+        </div>
         <div className="flex items-center justify-between space-x-2">
           <span>{review.comment}</span>
         </div>

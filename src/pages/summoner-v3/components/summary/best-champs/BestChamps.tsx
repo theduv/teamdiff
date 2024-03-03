@@ -25,7 +25,7 @@ const BestChampsBase = () => {
             {firstThreeChamps.map((champ, index) => (
               <div
                 className={clsx(
-                  "bg-secondary w-full flex items-center   text-primary py-1 px-4",
+                  "bg-secondary w-full flex items-center text-primary py-1 px-4 space-x-2",
                   {
                     "rounded-t-lg": index === 0 && firstThreeChamps.length > 1,
                     "rounded-b-lg":
