@@ -71,7 +71,10 @@ const NewReviewBase = () => {
           className="bg-blue-50 min-h-[100px] h-full w-full resize-none outline-none rounded-b-lg border-t border-t-gray-900 placeholder:text-primary items-center px-4 py-2"
           placeholder="Add a message to your grade"
         />
-        <button className="absolute right-4 bottom-4 text-primary">
+        <button
+          className="absolute right-4 bottom-4 text-primary"
+          disabled={!textValue}
+        >
           <IoSend size={SEND_BUTTON_ICON} />
         </button>
       </div>
