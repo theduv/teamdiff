@@ -1,9 +1,9 @@
 import { memo, useContext } from "react";
 
-import { SummonerSummary } from "./components/summary/SummonerSummary";
 import { SummonerPageContext } from "./contexts/SummonerPage.context";
-import { SummonerRecentReviews } from "./components/recent-reviews/SummonerRecentReviews";
+import { SummonerSummary } from "./components/summary/SummonerSummary";
 import { NewReview } from "./components/new-review/NewReview";
+import { SummonerRecentReviews } from "./components/recent-reviews/SummonerRecentReviews";
 
 const SummonerPageBase = () => {
   const { summoner } = useContext(SummonerPageContext);
@@ -11,10 +11,9 @@ const SummonerPageBase = () => {
   if (!summoner) return <div>Error while retrieving this summoner.</div>;
 
   return (
-    <div className="pt-12 flex flex-row p-4 h-full space-x-8">
-      <SummonerSummary />
-      <div className="h-[90%] bg-gray-500 w-[1px]" />
-      <div className="flex flex-col space-y-4 h-full w-full">
+    <div className="px-96 h-[100vh] py-4">
+      <div className="flex flex-col bg-primary w-full space-y-2 h-full">
+        <SummonerSummary />
         <NewReview />
         <SummonerRecentReviews />
       </div>

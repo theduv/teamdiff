@@ -19,7 +19,7 @@ type AuthContextProviderProps = {
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const contextValue: AuthContextValue = {
     summoner: {
-      ...MOCK_SUMMONERS[0],
+      ...MOCK_SUMMONERS[2],
     },
     isConnected: true,
   };

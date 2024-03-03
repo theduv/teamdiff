@@ -2,25 +2,25 @@ import { memo, useContext } from "react";
 
 import { Review } from "./Review";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
-import { EmptyStateSummonerRecentReviews } from "./EmptyStateSummonerRecentReview";
 
 const SummonerRecentReviewsBase = () => {
-  const { lastReviews } = useContext(SummonerPageContext);
+  let { lastReviews } = useContext(SummonerPageContext);
 
-  if (lastReviews.length === 0) {
-    return <EmptyStateSummonerRecentReviews />;
-  }
-
+  lastReviews = [...lastReviews, ...lastReviews];
   return (
-    <div className="flex flex-col space-y-8 h-full overflow-y-auto">
-      <div className="flex flex-col space-y-4">
-        <span className="text-3xl text-gray-300">Recent reviews</span>
-        <div className="h-[1px] w-full bg-gray-500" />
-      </div>
-      <div className="overflow-y-auto space-y-1 h-full flex flex-col">
-        {lastReviews?.map((review) => (
-          <Review review={review} key={review.id} />
-        ))}
+    <div className="flex flex-col space-y-8 w-full items-centerrounded-lg text-primary overflow-y-auto h-full">
+      <div className="flex flex-col space-y-2 w-full">
+        {!!lastReviews.length ? (
+          lastReviews?.map((review) => (
+            <Review review={review} key={review.id} />
+          ))
+        ) : (
+          <div className="flex items-center justify-center w-full mt-4">
+            <span className="italic text-gray-400">
+              No review has been found for this summoner.
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

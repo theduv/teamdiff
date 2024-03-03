@@ -2,7 +2,7 @@ import { memo, useContext } from "react";
 import { Route, Switch } from "wouter";
 
 import { HomePage } from "../pages/home/HomePage";
-import SummonerPage from "../pages/summoner-v3/SummonerPage.container";
+import SummonerPage from "../pages/summoner/SummonerPage.container";
 import SummonerMorePage from "../pages/summoner-more/SummonerMorePage.container";
 import { AuthContext } from "../contexts/Auth";
 

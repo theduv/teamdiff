@@ -1,10 +1,10 @@
 import { memo } from "react";
-import { SummonerSummary } from "../summoner/components/summary/SummonerSummary";
+import { Summary } from "./components/summary/Summary";
 
 const SummonerMorePageBase = () => {
   return (
-    <div>
-      <SummonerSummary />
+    <div className="text-secondary">
+      <Summary />
     </div>
   );
 };

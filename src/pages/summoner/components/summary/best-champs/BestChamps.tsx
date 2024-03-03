@@ -49,7 +49,7 @@ const BestChampsBase = () => {
             ))}
             {summoner.championGrades.length > 3 && (
               <Link
-                href={`/summoner`}
+                href={`/summoner/${summoner.name}-${summoner.tag}/more`}
                 className="bg-gray-100 px-2 h-full rounded-b-lg w-full text-center text-primary flex items-center justify-center space-x-2"
               >
                 <span>see more</span>

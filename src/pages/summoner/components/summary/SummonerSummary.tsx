@@ -1,66 +1,62 @@
 import { memo, useContext } from "react";
-import { Link } from "wouter";
+import { FaStar } from "react-icons/fa";
 
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
-import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
-import { StarRating } from "../../../../components/StarRating/StarRating";
+import { BestChamps } from "./best-champs/BestChamps";
+import { STAR_COLOR } from "../../../../lib/constants/lib";
+import { BadgesZone } from "./badges-zone/BadgesZone";
+import { useGetRiotSummonerByPUUID } from "../../../../hooks/queries/summoner";
+import { getSummonerIconURL } from "../../../../lib/functions/getSummonerIconURL";
+
+const SUMMONER_ICON_SIZE = 102;
 
 const SummonerSummaryBase = () => {
   const { summoner } = useContext(SummonerPageContext);
+  const { data: riotSummoner } = useGetRiotSummonerByPUUID(summoner?.PUUID);
 
-  if (!summoner) return null;
+  if (!summoner || !riotSummoner) return null;
 
-  const firstThreeGrades = [...summoner.championGrades];
+  const firstThreeGrades = [...(summoner.championGrades ?? [])];
   firstThreeGrades.splice(3);
 
   return (
-    <div className="flex flex-col space-y-8 self-start min-w-[300px]">
-      <div className="flex flex-col items-center space-y-8">
-        <div className="flex flex-col items-center space-y-2">
-          <img
-            src={summoner.iconURL}
-            width={170}
-            height={170}
-            className="rounded-3xl"
-          />
-          <span className="text-gray-300 text-3xl font-bold">
-            {summoner.name}#{summoner.tag}
-          </span>
-        </div>
-        <div className="flex flex-col ">
-          <StarRating
-            rating={!!summoner.globalGrade ? summoner.globalGrade : 0}
-            size="big"
-          />
-          <h2 className="text-2xl font-bold text-gray-500 self-end">
-            {summoner.globalGrade}
-          </h2>
-        </div>
-      </div>
-      <div className="w-full h-[1px] bg-gray-500" />
-      {firstThreeGrades.map((review) => (
-        <div className="flex space-x-4 items-center" key={review.championID}>
-          <img
-            src={getChampionIconURL(review.championID)}
-            height={80}
-            width={80}
-            className="rounded-full"
-          />
-          <div className="flex flex-col">
-            <StarRating rating={review.grade} />
-            <span className="self-end text-gray-500 font-bold">
-              {review.grade}
+    <div className="flex justify-between space-x-2 w-full rounded-lg text-primary">
+      <div className="flex flex-col p-2 rounded-lg bg-gray-100 w-full space-y-2 py-3 px-3">
+        <BadgesZone />
+        <div className="flex space-x-2">
+          <div className="flex flex-col space-y-1">
+            <div className="flex flex-col space-x-2 h-full">
+              <div className="relative">
+                <img
+                  src={getSummonerIconURL(riotSummoner.profileIconId)}
+                  width={SUMMONER_ICON_SIZE}
+                  height={SUMMONER_ICON_SIZE}
+                  className="border-4 border-primary h-full max-w-fit"
+                />
+                {summoner.globalGrade && (
+                  <div className="flex items-center bottom-0 justify-center w-full absolute rounded-t-lg">
+                    <div className="flex space-x-1 items-center justify-center px-2 py-[2px] bg-black rounded-t-lg">
+                      <FaStar color={STAR_COLOR} size={12} />
+                      <h2 className="text-sm font-bold text-secondary">
+                        {summoner.globalGrade}
+                      </h2>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col h-full justify-start">
+            <span className="text-2xl font-bold">
+              {summoner.name}#{summoner.tag}
+            </span>
+            <span className="text-primary italic">
+              {!!summoner.description ? summoner.description : ""}
             </span>
           </div>
         </div>
-      ))}
-      {summoner.championGrades.length > 3 && (
-        <div className="flex items-center justify-center w-full">
-          <Link href={`/summoner/${summoner.name}-${summoner.tag}/more`}>
-            <span className="text-blue-300">+ see more...</span>
-          </Link>
-        </div>
-      )}
+      </div>
+      <BestChamps />
     </div>
   );
 };
