@@ -22,6 +22,7 @@ export type Review = {
   matchID: string;
   grade: number;
   champion: Champion;
+  gameDuration: number;
   comment: string;
   hasWon: boolean;
 };
@@ -40,8 +41,8 @@ export type SummonerView = {
   tag: string;
   description: string | null;
   globalGrade: number | null;
-  championGrades: ChampionGrade[] | null;
-  givenReviewsIDs: string[] | null;
-  recievedReviewsIDs: string[] | null;
-  badges: BadgesAmount[] | null;
+  championGrades: ChampionGrade[];
+  givenReviewsIDs: string[];
+  recievedReviewsIDs: string[];
+  badges: BadgesAmount[];
 };

@@ -1,6 +1,6 @@
-import { CHAMPION_ID } from "../hooks/enums/lib";
+import { BADGE_NAME, CHAMPION_ID } from "../hooks/enums/lib";
 import { Review } from "../lib/types/lib";
-import { MOCK_REVIEWS_IDS, MOCK_SUMMONER_IDS } from "./ids";
+import { MOCK_REVIEWS_IDS } from "./ids";
 
 export const MOCK_REVIEWS: Review[] = [
   {
@@ -11,6 +11,8 @@ export const MOCK_REVIEWS: Review[] = [
       "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
     matchID: "010101",
     grade: 4,
+    gameDuration: 2241,
+    badges: [],
     champion: {
       name: "Corki",
       id: CHAMPION_ID.CORKI,
@@ -28,6 +30,8 @@ export const MOCK_REVIEWS: Review[] = [
     matchID: "02",
     grade: 2,
     hasWon: false,
+    gameDuration: 2240,
+    badges: [BADGE_NAME.GOOD_COMMUNICATION],
     champion: {
       name: "Vladimir",
       id: CHAMPION_ID.VLADIMIR,
@@ -43,6 +47,8 @@ export const MOCK_REVIEWS: Review[] = [
       "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
     matchID: "03",
     grade: 5,
+    gameDuration: 2840,
+    badges: [BADGE_NAME.GOOD_MACRO, BADGE_NAME.GOOD_MICRO],
     champion: {
       name: "Zac",
       id: CHAMPION_ID.ZAC,

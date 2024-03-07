@@ -1,6 +1,8 @@
 import { memo } from "react";
 import { Link } from "wouter";
 import clsx from "clsx";
+import duration from "dayjs/plugin/duration";
+import dayjs from "dayjs";
 
 import { Review as ReviewType } from "../../../../lib/types/lib";
 import {
@@ -13,6 +15,8 @@ import { getSummonerIconURL } from "../../../../lib/functions/getSummonerIconURL
 
 const CHAMPION_ICON_SIZE = 48;
 const SUMMONER_ICON_SIZE = 24;
+
+dayjs.extend(duration);
 
 type ReviewProps = {
   review: ReviewType;
@@ -27,7 +31,7 @@ const ReviewBase = ({ review }: ReviewProps) => {
   return (
     <div className="flex">
       <div
-        className={clsx("flex rounded-lg w-full", {
+        className={clsx("flex rounded-lg w-full space-x-4", {
           "bg-red-100": !review.hasWon,
           "bg-green-100": review.hasWon,
         })}
@@ -38,6 +42,19 @@ const ReviewBase = ({ review }: ReviewProps) => {
             "bg-green-300": review.hasWon,
           })}
         />
+        <div className="flex flex-col justify-center space-y-2 items-center h-full">
+          <h5
+            className={clsx("text-primary font-bold", {
+              "text-green-700": review.hasWon,
+              "text-red-700": !review.hasWon,
+            })}
+          >
+            {review.hasWon ? "Victory" : "Defeat"}
+          </h5>
+          <div className="w-full h-[1px] bg-gray-400" />
+          <h5>{dayjs.duration(review.gameDuration * 1000).format("mm:ss")}</h5>
+        </div>
+        <div className="h-full bg-gray-400 w-[1px]" />
         <div className="flex items-center space-x-4 p-4 w-full">
           <img
             src={getChampionIconURL(review.champion.id)}

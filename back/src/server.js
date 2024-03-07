@@ -37,6 +37,7 @@ fastify.get("/riot/history/common/:srcPUUID/:dstPUUID", async (req, res) => {
       matchID,
       Constants.RegionGroups.EUROPE
     );
+    console.log(currentMatch.response.info.gameDuration);
     const matchData = currentMatch?.response?.metadata;
     const participants = matchData?.participants;
     if (participants?.includes(srcPUUID) && participants?.includes(dstPUUID))

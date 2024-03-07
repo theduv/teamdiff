@@ -12,7 +12,7 @@ const CHAMPION_ICON_SIZE = 32;
 const BestChampsBase = () => {
   const { summoner } = useContext(SummonerPageContext);
 
-  if (!summoner || !summoner.championGrades) return null;
+  if (!summoner) return null;
 
   const firstThreeChamps = [...summoner.championGrades];
   firstThreeChamps.splice(3);

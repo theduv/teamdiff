@@ -51,7 +51,6 @@ export const MOCK_SUMMONERS: SummonerView[] = [
     globalGrade: 4.9,
     championGrades: [],
     badges: [],
-
     givenReviewsIDs: [],
     recievedReviewsIDs: [],
   },

@@ -1,10 +1,4 @@
-import {
-  ChangeEvent,
-  ChangeEventHandler,
-  memo,
-  useContext,
-  useState,
-} from "react";
+import { ChangeEvent, memo, useContext, useState } from "react";
 import { SummonerMorePageContext } from "../../contexts/SummonerMorePage.context";
 import { getSummonerIconURL } from "../../../../lib/functions/getSummonerIconURL";
 import { useGetRiotSummonerByPUUID } from "../../../../hooks/queries/summoner";

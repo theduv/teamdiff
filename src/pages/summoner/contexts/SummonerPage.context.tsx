@@ -4,7 +4,7 @@ import { useSummonerByName } from "../../../hooks/queries/summoner";
 import { useGetReviewsByIDs } from "../../../hooks/queries/reviews";
 
 type SummonerPageContextValue = {
-  summoner: SummonerView | null | undefined;
+  summoner: SummonerView | null;
   lastReviews: Review[];
 };
 
