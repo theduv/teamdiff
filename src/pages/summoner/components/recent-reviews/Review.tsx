@@ -42,9 +42,9 @@ const ReviewBase = ({ review }: ReviewProps) => {
             "bg-green-300": review.hasWon,
           })}
         />
-        <div className="flex flex-col justify-center space-y-2 items-center h-full">
+        <div className="flex flex-col justify-center space-y-1 items-center h-full">
           <h5
-            className={clsx("text-primary font-bold", {
+            className={clsx("text-primary font-bold text-xs", {
               "text-green-700": review.hasWon,
               "text-red-700": !review.hasWon,
             })}
@@ -52,7 +52,9 @@ const ReviewBase = ({ review }: ReviewProps) => {
             {review.hasWon ? "Victory" : "Defeat"}
           </h5>
           <div className="w-full h-[1px] bg-gray-400" />
-          <h5>{dayjs.duration(review.gameDuration * 1000).format("mm:ss")}</h5>
+          <h5 className="text-xs text-primary">
+            {dayjs.duration(review.gameDuration * 1000).format("mm:ss")}
+          </h5>
         </div>
         <div className="h-full bg-gray-400 w-[1px]" />
         <div className="flex items-center space-x-4 p-4 w-full">
