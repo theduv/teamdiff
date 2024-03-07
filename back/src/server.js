@@ -53,7 +53,6 @@ fastify.get("/riot/history/:puuid", async (req, rep) => {
     Constants.RegionGroups.EUROPE,
     {}
   );
-  console.log(res.response);
   return { matches: res.response };
 });
 
@@ -98,9 +97,9 @@ fastify.get("/riot/summoner/:summonerName/:summonerTag", async (req, res) => {
     tag: uuidCall.response.tagLine,
     description: null,
     globalGrade: null,
-    championGrades: null,
-    recievedReviewsIDs: null,
-    givenReviewsIDs: null,
+    championGrades: [],
+    recievedReviewsIDs: [],
+    givenReviewsIDs: [],
     badges: [],
   };
 });
