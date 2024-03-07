@@ -31,7 +31,7 @@ const ReviewBase = ({ review }: ReviewProps) => {
   return (
     <div className="flex">
       <div
-        className={clsx("flex rounded-lg w-full space-x-4", {
+        className={clsx("flex rounded-lg w-full space-x-3", {
           "bg-red-100": !review.hasWon,
           "bg-green-100": review.hasWon,
         })}
@@ -42,7 +42,7 @@ const ReviewBase = ({ review }: ReviewProps) => {
             "bg-green-300": review.hasWon,
           })}
         />
-        <div className="flex flex-col justify-center space-y-1 items-center h-full">
+        <div className="flex flex-col justify-center space-y-1 items-center h-full min-w-[40px]">
           <h5
             className={clsx("text-primary font-bold text-xs", {
               "text-green-700": review.hasWon,
