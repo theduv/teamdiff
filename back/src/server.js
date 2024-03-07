@@ -94,8 +94,8 @@ fastify.get("/riot/summoner/:summonerName/:summonerTag", async (req, res) => {
   return {
     PUUID: puuid,
     hasAnAccount: false,
-    name: summonerName,
-    tag: summonerTag,
+    name: uuidCall.response.gameName,
+    tag: uuidCall.response.tagLine,
     description: null,
     globalGrade: null,
     championGrades: null,
