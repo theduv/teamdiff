@@ -54,10 +54,9 @@ const ModalRecentMatchesBase = ({
   }[] = [];
 
   if (commonMatches?.data) {
-    const recentGames = commonMatches?.data.map((match: GameMatchInfo) =>
+    commonMatchesData = commonMatches?.data.map((match: GameMatchInfo) =>
       getOpponentCharacter({ matchInfos: match, PUUID: summoner?.PUUID })
     );
-    commonMatchesData = [...recentGames];
   }
 
   const onClickGame = (matchID: string, championName: string) => {
