@@ -23,7 +23,7 @@ const SummonerSummaryBase = () => {
     <div className="flex justify-between flex-col md:flex-row md:space-x-2 sm:space-x-0 w-full rounded-lg text-primary">
       <div className="flex flex-col p-2 rounded-lg bg-gray-100 w-full space-y-2 py-3 px-3">
         <BadgesZone />
-        <div className="flex space-x-2 border-2 bg-gradient-to-b from-secondary to-gray-100 border-b-0 border-l-0 rounded-tr-lg border-primary">
+        <div className="flex space-x-2 border-2 bg-gradient-to-b from-gray-300 to-gray-100 border-b-0 border-l-0 rounded-tr-lg border-primary">
           <div className="flex flex-col space-y-1">
             <div className="flex flex-col space-x-2 h-full">
               <div className="relative">
