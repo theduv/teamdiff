@@ -15,7 +15,6 @@ const modalStyles = {
     marginRight: "-50%",
     transform: "translate(-50%,-50%)",
     minWidth: "500px",
-    minHeight: "500px",
     backgroundColor: "#1D201F",
     borderRadius: "8px",
     display: "flex",
@@ -45,11 +44,11 @@ const ModalBase = ({
       onRequestClose={handleClose}
       style={modalStyles}
     >
-      <div className="flex flex-col space-y-4">
-        <div className="space-y-2">
+      <div className="flex flex-col space-y-4 h-full">
+        <div className="space-y-2 h-full">
           <div className="flex justify-between items-center">
             <div />
-            {<span className="text-xl font-bold text-gray-200">{title}</span>}
+            {<span className="text-xl font-bold text-secondary">{title}</span>}
             <button onClick={handleClose}>
               <IoIosClose size={32} color={"#f3f4f6"} />
             </button>

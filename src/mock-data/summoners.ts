@@ -1,4 +1,4 @@
-import { BADGE_NAME } from "../hooks/enums/lib";
+import { BADGE_NAME, CHAMPION_ID } from "../hooks/enums/lib";
 import { SummonerView } from "../lib/types/lib";
 import { MOCK_GRADES } from "./grades";
 import { MOCK_REVIEWS_IDS, MOCK_SUMMONER_IDS } from "./ids";
@@ -75,6 +75,43 @@ export const MOCK_SUMMONERS: SummonerView[] = [
     globalGrade: 1.2,
     badges: [],
     championGrades: [],
+    givenReviewsIDs: [],
+    recievedReviewsIDs: [],
+  },
+  {
+    PUUID:
+      "bC0iL1DqRsFhxpARhVl81niKQpR25aaz927HznTmkSSoU3B28WOZxyf29c5GfUOVc1lcpF9YrFK3GQ",
+    name: "LINAS HABIBI",
+    tag: "0601",
+    hasAnAccount: true,
+    description:
+      "RIOT I SWEAR IM NOT SMURFING AND IM JUST GOOD ON TWITCH. PLEASE DON'T BAN TY <3<3",
+    globalGrade: 5,
+    championGrades: [
+      {
+        championName: "Twitch",
+        championID: CHAMPION_ID.TWITCH,
+        grade: 5,
+        individualReviewsIDs: [],
+      },
+      {
+        championName: "Evelynn",
+        championID: CHAMPION_ID.EVELYNN,
+        grade: 5,
+        individualReviewsIDs: [],
+      },
+      {
+        championName: "Zac",
+        championID: CHAMPION_ID.ZAC,
+        grade: 5,
+        individualReviewsIDs: [],
+      },
+    ],
+    badges: [
+      { name: BADGE_NAME.GOOD_COMMUNICATION, amount: 6 },
+      { name: BADGE_NAME.GOOD_MICRO, amount: 6 },
+      { name: BADGE_NAME.GOOD_MACRO, amount: 6 },
+    ],
     givenReviewsIDs: [],
     recievedReviewsIDs: [],
   },

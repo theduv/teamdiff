@@ -52,6 +52,7 @@ const ModalRecentMatchesBase = ({
     timestamp: number;
     id: string;
   }[] = [];
+
   if (commonMatches?.data) {
     const recentGames = commonMatches?.data.map((match: GameMatchInfo) =>
       getOpponentCharacter({ matchInfos: match, PUUID: summoner?.PUUID })
@@ -67,25 +68,33 @@ const ModalRecentMatchesBase = ({
   return (
     <Modal isOpen={isOpen} handleClose={handleClose} title="Recent games">
       <div className="flex items-center justify-center my-auto h-full">
-        <div className="flex flex-col space-y-2 w-1/2 h-full ">
-          {commonMatchesData?.map((match) => (
-            <button
-              key={`match-${match.id}`}
-              className="flex items-center justify-between w-full"
-              onClick={() => onClickGame(match.id, match.championName)}
-            >
-              <img
-                src={getChampionIconURL(match.championName as CHAMPION_ID)}
-                width={60}
-                height={60}
-                className="rounded-full"
-              />
-              <span className="text-2xl text-gray-400">
-                <TimeAgo datetime={match.timestamp} />
-              </span>
-            </button>
-          ))}
-        </div>
+        {!!commonMatchesData?.length ? (
+          <div className="flex flex-col space-y-2 w-1/2 h-full ">
+            {commonMatchesData?.map((match) => (
+              <button
+                key={`match-${match.id}`}
+                className="flex items-center justify-between w-full"
+                onClick={() => onClickGame(match.id, match.championName)}
+              >
+                <img
+                  src={getChampionIconURL(match.championName as CHAMPION_ID)}
+                  width={60}
+                  height={60}
+                  className="rounded-full"
+                />
+                <span className="text-2xl text-gray-400">
+                  <TimeAgo datetime={match.timestamp} />
+                </span>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="h-full flex flex-col justify-center items-center">
+            <span className="text-secondary italic">
+              No recent common match found between you and this summoner.
+            </span>
+          </div>
+        )}
       </div>
     </Modal>
   );
