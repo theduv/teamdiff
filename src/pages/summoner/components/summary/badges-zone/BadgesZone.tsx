@@ -13,7 +13,7 @@ const BadgesZoneBase = () => {
         {Object.values(BADGE_NAME).map((badge) => (
           <div
             key={`badge-${badge}`}
-            className="flex items-center space-x-1 rounded-xl py-[1px] px-[8px] text-primary bg-gray-200 shadow-sm shadow-primary border border-primary "
+            className="flex items-center space-x-1 rounded-xl py-[1px] px-[8px] text-primary bg-gray-300 "
           >
             <Badge element={badge} disabled={true} />
             <span>
