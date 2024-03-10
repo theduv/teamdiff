@@ -1,16 +1,29 @@
-import { createContext, ReactNode } from "react";
-import { SummonerView } from "../../../lib/types/lib";
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import { useParams } from "wouter";
-import { isSummonerNameAndTagValid } from "../../../lib/functions/isSummonerNameAndTagValid";
+import { noop } from "lodash";
+
+import { SummonerView } from "../../../lib/types/lib";
 import { useSummonerByName } from "../../../hooks/queries/summoner";
+import { CHAMPION_ID } from "../../../hooks/enums/lib";
 
 type SummonerMorePageContextValue = {
-  summoner: SummonerView | null | undefined;
+  summoner: SummonerView | null;
+  selectedChampion: CHAMPION_ID | null;
+  setSelectedChampion: Dispatch<SetStateAction<CHAMPION_ID>>;
 };
 
 export const SummonerMorePageContext =
   createContext<SummonerMorePageContextValue>({
     summoner: null,
+    selectedChampion: null,
+    setSelectedChampion: noop,
   });
 
 type SummonerMorePageContextProviderProps = {
@@ -21,18 +34,26 @@ export const SummonerMorePageContextProvider = ({
   children,
 }: SummonerMorePageContextProviderProps) => {
   const params = useParams();
-  let summoner = null;
+  const [summonerName, summonerTag] =
+    params && params.id && params.id.includes("-")
+      ? params.id.split("-")
+      : ["undefined", "undefined"];
 
-  if (!params.id || !isSummonerNameAndTagValid(params.id, "-")) {
-    summoner = null;
-  } else {
-    const [summonerName, summonerID] = params.id.split("-");
+  let { data: summoner } = useSummonerByName(summonerName, summonerTag);
 
-    summoner = useSummonerByName(summonerName, summonerID).data;
-  }
+  const [selectedChampionReviews, setSelectedChampionReviews] = useState([]);
+  const [selectedChampion, setSelectedChampion] = useState(
+    summoner ? summoner.championGrades[0].championID : null
+  );
+
+  useEffect(() => {
+    setSelectedChampionReviews([]);
+  }, [selectedChampion]);
 
   const contextValue = {
     summoner,
+    selectedChampion,
+    setSelectedChampion,
   };
 
   return (

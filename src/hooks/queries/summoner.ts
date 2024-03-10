@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { MOCK_SUMMONERS } from "../../mock-data/summoners";
 import axios from "axios";
 import { GetSummonerByPUUIDResponse } from "../../lib/types/riot-api";
+import { SummonerView } from "../../lib/types/lib";
 
 export const useGetRiotSummonerByPUUID = (puuid: string | undefined | null) =>
   useQuery({
@@ -33,8 +34,7 @@ export const useSummonerByName = (summonerName: string, summonerTag: string) =>
               import.meta.env.VITE_API_URL
             }/riot/summoner/${summonerName}/${summonerTag}`
           );
-          console.log(data);
-          return data.data;
+          return data.data as SummonerView;
         }
       }
       return res;
