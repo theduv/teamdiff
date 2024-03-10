@@ -8,6 +8,7 @@ const CHAMPION_ICON_SIZE = 64;
 
 const SelectedChampionSummaryBase = () => {
   const { selectedChampion, summoner } = useContext(SummonerMorePageContext);
+  if (!summoner) return null;
   const reviewsIDs: string[] = [];
   for (let review of summoner?.championGrades.filter(
     (cg) => cg.championID === selectedChampion
