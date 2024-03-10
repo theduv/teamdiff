@@ -2,12 +2,25 @@ import { memo, useContext } from "react";
 
 import { SummonerMorePageContext } from "../../contexts/SummonerMorePage.context";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
+import { useGetReviewsByIDs } from "../../../../hooks/queries/reviews";
 
 const CHAMPION_ICON_SIZE = 64;
 
 const SelectedChampionSummaryBase = () => {
   const { selectedChampion, summoner } = useContext(SummonerMorePageContext);
+  const reviewsIDs: string[] = [];
+  for (let review of summoner?.championGrades.filter(
+    (cg) => cg.championID === selectedChampion
+  )) {
+    console.log(review.individualReviewsIDs);
+    reviewsIDs.concat([...review.individualReviewsIDs]);
+  }
+  console.log(reviewsIDs);
+  const { data: reviews } = useGetReviewsByIDs(
+    summoner?.championGrades.filter((cg) => cg.championID === selectedChampion)
+  );
 
+  console.log(reviews);
   if (!selectedChampion || !summoner) return null;
 
   return (
