@@ -10,18 +10,15 @@ const SelectedChampionSummaryBase = () => {
   const { selectedChampion, summoner } = useContext(SummonerMorePageContext);
   if (!summoner) return null;
   const reviewsIDs: string[] = [];
+
   for (let review of summoner?.championGrades.filter(
     (cg) => cg.championID === selectedChampion
   )) {
     console.log(review.individualReviewsIDs);
     reviewsIDs.concat([...review.individualReviewsIDs]);
   }
-  console.log(reviewsIDs);
-  const { data: reviews } = useGetReviewsByIDs(
-    summoner?.championGrades.filter((cg) => cg.championID === selectedChampion)
-  );
+  const { data: reviews } = useGetReviewsByIDs({ reviewsIDs });
 
-  console.log(reviews);
   if (!selectedChampion || !summoner) return null;
 
   return (

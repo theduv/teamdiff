@@ -29,12 +29,12 @@ export const useSummonerByName = (summonerName: string, summonerTag: string) =>
             summonerTag.toLowerCase() === summoner.tag.toLocaleLowerCase()
         );
         if (!res) {
-          const data = await axios.get(
+          const response = await axios.get(
             `${
               import.meta.env.VITE_API_URL
             }/riot/summoner/${summonerName}/${summonerTag}`
           );
-          return data.data as SummonerView;
+          res = response.data as SummonerView;
         }
       }
       return res;

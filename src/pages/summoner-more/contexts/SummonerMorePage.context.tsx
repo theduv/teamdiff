@@ -14,9 +14,9 @@ import { useSummonerByName } from "../../../hooks/queries/summoner";
 import { CHAMPION_ID } from "../../../hooks/enums/lib";
 
 type SummonerMorePageContextValue = {
-  summoner: SummonerView | null;
+  summoner: SummonerView | null | undefined;
   selectedChampion: CHAMPION_ID | null;
-  setSelectedChampion: Dispatch<SetStateAction<CHAMPION_ID>>;
+  setSelectedChampion: Dispatch<SetStateAction<CHAMPION_ID | null>>;
 };
 
 export const SummonerMorePageContext =
@@ -41,14 +41,9 @@ export const SummonerMorePageContextProvider = ({
 
   let { data: summoner } = useSummonerByName(summonerName, summonerTag);
 
-  const [selectedChampionReviews, setSelectedChampionReviews] = useState([]);
   const [selectedChampion, setSelectedChampion] = useState(
     summoner ? summoner.championGrades[0].championID : null
   );
-
-  useEffect(() => {
-    setSelectedChampionReviews([]);
-  }, [selectedChampion]);
 
   const contextValue = {
     summoner,
