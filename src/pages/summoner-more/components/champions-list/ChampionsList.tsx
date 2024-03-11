@@ -21,7 +21,7 @@ const ChampionsListBase = () => {
   };
 
   return (
-    <div className="flex flex-col items-center space-y-4 p-4 rounded-lg bg-gray-100">
+    <div className="flex w-full flex-col items-center space-y-4 p-4 rounded-lg bg-gray-100">
       <input
         className="rounded-lg py-2 px-4 border border-gray-400"
         value={searchValue}

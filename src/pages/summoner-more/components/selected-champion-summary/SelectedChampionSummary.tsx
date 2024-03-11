@@ -32,7 +32,10 @@ const SelectedChampionSummaryBase = () => {
           src={getChampionIconURL(selectedChampion)}
         />
         <span>
-          {summoner.name}#{summoner.tag} as {selectedChampion}
+          <span className="font-bold">
+            {summoner.name}#{summoner.tag}
+          </span>{" "}
+          as <span className="font-bold">{selectedChampion}</span>
         </span>
       </div>
       <div className="h-[1px] bg-gray-700 w-full" />
