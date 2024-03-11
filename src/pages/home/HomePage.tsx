@@ -3,6 +3,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 import { navigate } from "wouter/use-browser-location";
 
 import { isSummonerNameAndTagValid } from "../../lib/functions/isSummonerNameAndTagValid";
+import { TextInput } from "../../components/TextInput/TextInput";
 
 const HomePageBase = () => {
   const [summonerValue, setSummonerValue] = useState("");
@@ -36,11 +37,10 @@ const HomePageBase = () => {
       <div className="flex flex-col space-y-4">
         <h1 className="text-gray-100 text-4xl">Summoner name</h1>
         <div className="flex items-center space-x-4">
-          <input
+          <TextInput
             value={summonerValue}
-            onChange={onChangeSummonerValue}
+            onChangeValue={onChangeSummonerValue}
             onKeyDown={inputKeydownHandler}
-            className="bg-gray-200 rounded-md px-4 py-2 outline-none"
             placeholder="AlphaDraven#EUW"
           />
           <button onClick={onClickSearch}>

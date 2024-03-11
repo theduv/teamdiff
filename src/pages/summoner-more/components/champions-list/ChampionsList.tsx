@@ -4,6 +4,7 @@ import { SummonerMorePageContext } from "../../contexts/SummonerMorePage.context
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 import { StarRating } from "../../../../components/StarRating/StarRating";
 import { CHAMPION_ID } from "../../../../hooks/enums/lib";
+import { TextInput } from "../../../../components/TextInput/TextInput";
 
 const CHAMPION_ICON_SIZE = 32;
 
@@ -22,11 +23,11 @@ const ChampionsListBase = () => {
 
   return (
     <div className="flex w-full flex-col items-center space-y-4 p-4 rounded-lg bg-gray-100">
-      <input
-        className="rounded-lg py-2 px-4 border border-gray-400"
+      <TextInput
         value={searchValue}
-        onChange={onChangeSearchValue}
-        placeholder="Search for a champion"
+        onChangeValue={onChangeSearchValue}
+        label="Search for a champion"
+        placeholder="Aatrox"
       />
       <div className="h-[1px] bg-gray-700 w-full" />
       <div className="flex flex-col space-y-2 w-full">

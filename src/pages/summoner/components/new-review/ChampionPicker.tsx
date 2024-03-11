@@ -10,6 +10,7 @@ import {
 
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 import { CHAMPION_ID } from "../../../../hooks/enums/lib";
+import { TextInput } from "../../../../components/TextInput/TextInput";
 
 type ChampionPickerProps = {
   value: CHAMPION_ID;
@@ -64,10 +65,9 @@ const ChampionPickerBase = ({ value, setValue }: ChampionPickerProps) => {
         >
           <label className="flex space-x-4 items-center">
             <h4 className="text-gray-300">Champion:</h4>
-            <input
+            <TextInput
               value={searchValue}
-              onChange={handleChangeSearchValue}
-              className="rounded-md p-1"
+              onChangeValue={handleChangeSearchValue}
               placeholder="Aatrox"
             />
           </label>
