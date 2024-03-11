@@ -30,14 +30,14 @@ const ChampionsListBase = () => {
         placeholder="Aatrox"
       />
       <div className="h-[1px] bg-gray-700 w-full" />
-      <div className="flex flex-col space-y-2 w-full">
+      <div className="flex flex-col space-y-2 w-full px-24">
         {summoner?.championGrades
           .filter((grade) =>
             grade.championName.toLowerCase().includes(searchValue.toLowerCase())
           )
           .map((championGrade) => (
             <div
-              className="flex justify-between space-x-3 w-full cursor-pointer hover:bg-gray-200 p-1 rounded-lg"
+              className="flex justify-between space-x-3 w-full cursor-pointer hover:bg-gray-200 p-2 rounded-lg"
               onClick={() => onClickChampion(championGrade.championID)}
             >
               <div className="flex flex-col items-center justify-center">
