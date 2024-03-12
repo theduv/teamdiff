@@ -25,6 +25,8 @@ export const MOCK_SUMMONERS: SummonerView[] = [
       MOCK_REVIEWS_IDS[0],
       MOCK_REVIEWS_IDS[1],
       MOCK_REVIEWS_IDS[2],
+      MOCK_REVIEWS_IDS[3],
+      MOCK_REVIEWS_IDS[4],
     ],
   },
   {

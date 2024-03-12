@@ -18,8 +18,7 @@ export const MOCK_REVIEWS: Review[] = [
       id: CHAMPION_ID.CORKI,
     },
     hasWon: true,
-    comment:
-      "Super trop fort ton Corki !! Tu peux m'épouser stp ? Comme ça on fait des bébés on vit ensemble etc etc",
+    comment: "Amazing Corki, carried the whole game from early till the end.",
   },
   {
     id: MOCK_REVIEWS_IDS[1],
@@ -36,8 +35,7 @@ export const MOCK_REVIEWS: Review[] = [
       name: "Vladimir",
       id: CHAMPION_ID.VLADIMIR,
     },
-    comment:
-      "Je t'aime beaucoup hein... mais ton vieux Vladimir là plus jamais.",
+    comment: "I like you a lot... but this awful Vladimir, no more again.",
   },
   {
     id: MOCK_REVIEWS_IDS[2],
@@ -55,6 +53,45 @@ export const MOCK_REVIEWS: Review[] = [
     },
     hasWon: true,
     comment:
-      "OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!! OMG JE VEUX JOUER AVEC CE ZAC TOUS LES JOURS, IL EST EXCEPTIONNEL !!!!",
+      "OMG I WANNA PLAY WITH THIS ZAC ALL THE TIME, HE'S WONDERFUL ON IT !!!! OMG I WANNA PLAY WITH THIS ZAC ALL THE TIME, HE'S WONDERFUL ON IT !!!! OMG I WANNA PLAY WITH THIS ZAC ALL THE TIME, HE'S WONDERFUL ON IT !!!! OMG I WANNA PLAY WITH THIS ZAC ALL THE TIME, HE'S WONDERFUL ON IT !!!! OMG I WANNA PLAY WITH THIS ZAC ALL THE TIME, HE'S WONDERFUL ON IT !!!! OMG I WANNA PLAY WITH THIS ZAC ALL THE TIME, HE'S WONDERFUL ON IT !!!! OMG I WANNA PLAY WITH THIS ZAC ALL THE TIME, HE'S WONDERFUL ON IT !!!! OMG I WANNA PLAY WITH THIS ZAC ALL THE TIME, HE'S WONDERFUL ON IT !!!!",
+  },
+  {
+    id: MOCK_REVIEWS_IDS[3],
+    authorUUID:
+      "mgokFezKKl-KEpF9ELWTw3kZ6I8eOwUfRpBbk-LHwSoxsLaV3UrkddteJTpRjFLR7XaX3qJ2QT_Puw",
+    receiverUUID:
+      "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
+    matchID: "04",
+    grade: 4,
+    gameDuration: 2840,
+    badges: [
+      BADGE_NAME.GOOD_MACRO,
+      BADGE_NAME.GOOD_MICRO,
+      BADGE_NAME.GOOD_COMMUNICATION,
+    ],
+    champion: {
+      name: "Evelynn",
+      id: CHAMPION_ID.EVELYNN,
+    },
+    hasWon: true,
+    comment: "Decent Evelynn.",
+  },
+  {
+    id: MOCK_REVIEWS_IDS[4],
+    authorUUID:
+      "bC0iL1DqRsFhxpARhVl81niKQpR25aaz927HznTmkSSoU3B28WOZxyf29c5GfUOVc1lcpF9YrFK3GQ",
+    receiverUUID:
+      "vDb-5V_i7rFBy4Rhd-C2xY4h-OyER5HWzgoQkx2EfuDfJ2uHlTx39IRnQbgf0ZkV9WoJFEGnOerDFQ",
+    matchID: "05",
+    grade: 1,
+    gameDuration: 2840,
+    badges: [],
+    champion: {
+      name: "Yorick",
+      id: CHAMPION_ID.YORICK,
+    },
+    hasWon: true,
+    comment:
+      "I've never played with this guy LMAO I just found a bug on this website.",
   },
 ];
