@@ -12,6 +12,7 @@ import {
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 import { StarRating } from "../../../../components/StarRating/StarRating";
 import { getSummonerIconURL } from "../../../../lib/functions/getSummonerIconURL";
+import { ReviewBadges } from "./ReviewBadges";
 
 const CHAMPION_ICON_SIZE = 48;
 const SUMMONER_ICON_SIZE = 24;
@@ -80,7 +81,10 @@ const ReviewBase = ({ review }: ReviewProps) => {
                   {summoner.name}#{summoner.tag}
                 </h2>
               </Link>
-              <StarRating rating={review.grade} size={"xsmall"} />
+              <div className="flex">
+                <StarRating rating={review.grade} size={"xsmall"} />
+                <ReviewBadges badges={review.badges} />
+              </div>
             </div>
             <div className="flex items-center justify-between space-x-2">
               <span>{review.comment}</span>
