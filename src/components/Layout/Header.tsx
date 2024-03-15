@@ -1,6 +1,6 @@
 import { memo, useContext } from "react";
 import { Link } from "wouter";
-import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import { MdArrowBackIos } from "react-icons/md";
 
 import { AuthContext } from "../../contexts/Auth";
 import { useGetRiotSummonerByPUUID } from "../../hooks/queries/summoner";
@@ -21,7 +21,7 @@ const HeaderBase = () => {
     <div className="flex sticky top-0 z-50 h-[80px] w-full px-2 py-4 bg-secondary justify-between items-center">
       <div className="flex items-center space-x-2">
         <button onClick={onClickArrow}>
-          <MdOutlineKeyboardArrowLeft size={34} />
+          <MdArrowBackIos size={24} />
         </button>
         <Link href="/">
           <h1 className="font-semibold text-3xl italic">CheckM8</h1>
