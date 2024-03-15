@@ -61,4 +61,4 @@ const ModalBase = ({
   );
 };
 
-export const Modal = memo(ModalBase);
+export default memo(ModalBase);

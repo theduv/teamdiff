@@ -101,4 +101,4 @@ const ChampionPickerBase = ({ value, setValue }: ChampionPickerProps) => {
   );
 };
 
-export const ChampionPicker = memo(ChampionPickerBase);
+export default memo(ChampionPickerBase);

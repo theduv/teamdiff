@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 import { BADGE_NAME } from "../../../../hooks/enums/lib";
-import { Badge } from "../badge/Badge";
+import Badge from "../badge/Badge";
 
 type ReviewBadgesProps = {
   badges: BADGE_NAME[];
@@ -19,4 +19,4 @@ const ReviewBadgesBase = ({ badges }: ReviewBadgesProps) => {
   );
 };
 
-export const ReviewBadges = memo(ReviewBadgesBase);
+export default memo(ReviewBadgesBase);

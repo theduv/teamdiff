@@ -3,9 +3,10 @@ import { Link } from "wouter";
 import { FaChevronRight } from "react-icons/fa";
 import clsx from "clsx";
 
+import StarRating from "../../../../../components/StarRating/StarRating";
+
 import { SummonerPageContext } from "../../../contexts/SummonerPage.context";
 import { getChampionIconURL } from "../../../../../lib/functions/getChampionIconURL";
-import { StarRating } from "../../../../../components/StarRating/StarRating";
 import { ChampionGrade } from "../../../../../lib/types/lib";
 
 const CHAMPION_ICON_SIZE = 32;

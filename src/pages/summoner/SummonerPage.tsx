@@ -1,9 +1,10 @@
 import { memo, useContext } from "react";
 
+import SummonerSummary from "./components/summary/SummonerSummary";
+import NewReview from "./components/new-review/NewReview";
+import SummonerRecentReviews from "./components/recent-reviews/SummonerRecentReviews";
+
 import { SummonerPageContext } from "./contexts/SummonerPage.context";
-import { SummonerSummary } from "./components/summary/SummonerSummary";
-import { NewReview } from "./components/new-review/NewReview";
-import { SummonerRecentReviews } from "./components/recent-reviews/SummonerRecentReviews";
 
 const SummonerPageBase = () => {
   const { summoner } = useContext(SummonerPageContext);
@@ -21,4 +22,4 @@ const SummonerPageBase = () => {
   );
 };
 
-export const SummonerPage = memo(SummonerPageBase);
+export default memo(SummonerPageBase);

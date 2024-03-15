@@ -1,9 +1,10 @@
 import { memo, useContext } from "react";
 
+import Review from "../../../summoner/components/recent-reviews/Review";
+
 import { SummonerMorePageContext } from "../../contexts/SummonerMorePage.context";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
 import { useGetReviewsByIDs } from "../../../../hooks/queries/reviews";
-import { Review } from "../../../summoner/components/recent-reviews/Review";
 
 const CHAMPION_ICON_SIZE = 64;
 
@@ -46,4 +47,4 @@ const SelectedChampionSummaryBase = () => {
   );
 };
 
-export const SelectedChampionSummary = memo(SelectedChampionSummaryBase);
+export default memo(SelectedChampionSummaryBase);

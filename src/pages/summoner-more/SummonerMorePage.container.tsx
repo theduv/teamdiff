@@ -1,6 +1,7 @@
 import { memo } from "react";
 
-import { SummonerMorePage } from "./SummonerMorePage";
+import SummonerMorePage from "./SummonerMorePage";
+
 import { SummonerMorePageContextProvider } from "./contexts/SummonerMorePage.context";
 
 const SummonerMorePageContainerBase = () => {

@@ -4,15 +4,15 @@ import clsx from "clsx";
 import duration from "dayjs/plugin/duration";
 import dayjs from "dayjs";
 
+import StarRating from "../../../../components/StarRating/StarRating";
+import ReviewBadges from "./ReviewBadges";
 import { Review as ReviewType } from "../../../../lib/types/lib";
 import {
   useGetRiotSummonerByPUUID,
   useSummonerByID,
 } from "../../../../hooks/queries/summoner";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
-import { StarRating } from "../../../../components/StarRating/StarRating";
 import { getSummonerIconURL } from "../../../../lib/functions/getSummonerIconURL";
-import { ReviewBadges } from "./ReviewBadges";
 
 const CHAMPION_ICON_SIZE = 48;
 const SUMMONER_ICON_SIZE = 24;
@@ -96,4 +96,4 @@ const ReviewBase = ({ review }: ReviewProps) => {
   );
 };
 
-export const Review = memo(ReviewBase);
+export default memo(ReviewBase);

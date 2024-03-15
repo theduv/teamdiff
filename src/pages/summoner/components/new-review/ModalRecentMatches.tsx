@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, memo, useContext } from "react";
 import TimeAgo from "timeago-react";
 
-import { Modal } from "../../../../components/Modal/Modal";
+import Modal from "../../../../components/Modal/Modal";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { useGetSameGameHistoryData } from "../../../../hooks/queries/history";
 import { AuthContext } from "../../../../contexts/Auth";
@@ -99,4 +99,4 @@ const ModalRecentMatchesBase = ({
   );
 };
 
-export const ModalRecentMatches = memo(ModalRecentMatchesBase);
+export default memo(ModalRecentMatchesBase);

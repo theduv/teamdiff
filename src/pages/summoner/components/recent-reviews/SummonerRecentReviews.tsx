@@ -1,6 +1,6 @@
 import { memo, useContext } from "react";
 
-import { Review } from "./Review";
+import Review from "./Review";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 
 const SummonerRecentReviewsBase = () => {
@@ -25,4 +25,4 @@ const SummonerRecentReviewsBase = () => {
   );
 };
 
-export const SummonerRecentReviews = memo(SummonerRecentReviewsBase);
+export default memo(SummonerRecentReviewsBase);

@@ -1,14 +1,11 @@
 import { ChangeEvent, memo, useContext, useState } from "react";
 
-import { BadgesSelector } from "./BadgesSelector";
-import { IoSend } from "react-icons/io5";
+import BadgesSelector from "./BadgesSelector";
+import ModalRecentMatches from "./ModalRecentMatches";
+import StarRating from "../../../../components/StarRating/StarRating";
 import { BADGE_NAME, CHAMPION_ID } from "../../../../hooks/enums/lib";
-import { StarRating } from "../../../../components/StarRating/StarRating";
-import { ModalRecentMatches } from "./ModalRecentMatches";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
-
-const SEND_BUTTON_ICON = 24;
 
 const NewReviewBase = () => {
   const { summoner } = useContext(SummonerPageContext);
@@ -30,53 +27,48 @@ const NewReviewBase = () => {
   };
 
   return (
-    <div className="flex flex-col bg-blue-100 rounded-lg text-primary">
-      <div className="flex px-4 py-2 justify-between items-center">
+    <div className="flex flex-col w-full max-w-[900px]">
+      {matchValue && (
+        <div className="flex justify-center">
+          <div className="flex space-x-4 items-center bg-gray-500 py-1 px-6 rounded-t-lg ">
+            <img
+              className="rounded-full"
+              src={getChampionIconURL(matchValue.champion)}
+              width={32}
+              height={32}
+            />
+            <span className="text-xl text-gray-200">
+              Reviewing <span className="font-bold">{summoner?.name}</span> as{" "}
+              {matchValue.champion}
+            </span>
+          </div>
+        </div>
+      )}
+      <div className="bg-gray-600 flex-1 flex rounded-t-2xl px-4 py-2 justify-between items-center">
         <div className="flex flex-col">
           <StarRating
             onChangeRating={changeRatingHandler}
             rating={ratingValue}
           />
         </div>
-        {matchValue && (
-          <div className="flex justify-center">
-            <div className="flex space-x-4 items-center py-1 px-6 rounded-lg ">
-              <img
-                className="rounded-full"
-                src={getChampionIconURL(matchValue.champion)}
-                width={32}
-                height={32}
-              />
-              <span className="text-xl">
-                Reviewing <span className="font-bold">{summoner?.name}</span> as{" "}
-                {matchValue.champion}
-              </span>
-            </div>
-          </div>
-        )}
         <div className="flex space-x-2 items-center">
           <BadgesSelector value={badgesValue} setValue={setBadgesValue} />
           <button
             onClick={() => setIsModalOpen(true)}
-            className="text-secondary rounded-md px-4 py-2 bg-primary font-bold"
+            className="text-gray-200 rounded-md px-4 py-2 bg-gray-900 font-bold"
           >
             {matchValue ? "CHANGE MATCH" : "PICK A MATCH"}
           </button>
         </div>
       </div>
-      <div className="relative w-full">
+      <div>
         <textarea
           value={textValue}
           onChange={onChangeTextArea}
-          className="bg-blue-50 min-h-[100px] h-full w-full resize-none outline-none rounded-b-lg border-t border-t-gray-900 placeholder:text-primary items-center px-4 py-2"
+          className="bg-gray-900 border border-1 resize-none border-gray-600 outline-none text-gray-200 rounded-b-xl placeholder:text-gray-200 items-center flex justify-center px-4 py-2"
           placeholder="Add a message to your grade"
         />
-        <button
-          className="absolute right-4 bottom-4 text-primary"
-          disabled={!textValue}
-        >
-          <IoSend size={SEND_BUTTON_ICON} />
-        </button>
+        <button></button>
       </div>
       <ModalRecentMatches
         isOpen={isModalOpen}
@@ -87,4 +79,4 @@ const NewReviewBase = () => {
   );
 };
 
-export const NewReview = memo(NewReviewBase);
+export default memo(NewReviewBase);

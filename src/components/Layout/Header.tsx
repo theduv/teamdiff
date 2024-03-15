@@ -1,5 +1,6 @@
 import { memo, useContext } from "react";
 import { Link } from "wouter";
+
 import { AuthContext } from "../../contexts/Auth";
 import { useGetRiotSummonerByPUUID } from "../../hooks/queries/summoner";
 import { getSummonerIconURL } from "../../lib/functions/getSummonerIconURL";

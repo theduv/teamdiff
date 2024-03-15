@@ -1,8 +1,9 @@
 import { ChangeEvent, memo, useContext, useState } from "react";
 
+import StarRating from "../../../../components/StarRating/StarRating";
+
 import { SummonerMorePageContext } from "../../contexts/SummonerMorePage.context";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
-import { StarRating } from "../../../../components/StarRating/StarRating";
 import { CHAMPION_ID } from "../../../../hooks/enums/lib";
 import { TextInput } from "../../../../components/TextInput/TextInput";
 
@@ -60,4 +61,4 @@ const ChampionsListBase = () => {
   );
 };
 
-export const ChampionsList = memo(ChampionsListBase);
+export default memo(ChampionsListBase);

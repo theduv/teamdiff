@@ -1,7 +1,8 @@
 import { memo } from "react";
 import { useParams } from "wouter";
 
-import { SummonerPage } from "./SummonerPage";
+import SummonerPage from "./SummonerPage";
+
 import { SummonerPageContextProvider } from "./contexts/SummonerPage.context";
 
 const SummonerPageContainerBase = () => {

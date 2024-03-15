@@ -1,10 +1,10 @@
 import { memo, useContext } from "react";
 import { FaStar } from "react-icons/fa";
 
+import BadgesZone from "./badges-zone/BadgesZone";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { BestChamps } from "./best-champs/BestChamps";
 import { STAR_COLOR } from "../../../../lib/constants/lib";
-import { BadgesZone } from "./badges-zone/BadgesZone";
 import { useGetRiotSummonerByPUUID } from "../../../../hooks/queries/summoner";
 import { getSummonerIconURL } from "../../../../lib/functions/getSummonerIconURL";
 
@@ -61,4 +61,4 @@ const SummonerSummaryBase = () => {
   );
 };
 
-export const SummonerSummary = memo(SummonerSummaryBase);
+export default memo(SummonerSummaryBase);

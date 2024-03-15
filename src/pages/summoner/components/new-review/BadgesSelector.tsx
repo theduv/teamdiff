@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, memo } from "react";
 
-import { Badge } from "../badge/Badge";
+import Badge from "../badge/Badge";
 import { BADGE_NAME } from "../../../../hooks/enums/lib";
 
 type BadgesSelectorProps = {
@@ -33,4 +33,4 @@ const BadgesSelectorBase = ({ value, setValue }: BadgesSelectorProps) => {
   );
 };
 
-export const BadgesSelector = memo(BadgesSelectorBase);
+export default memo(BadgesSelectorBase);

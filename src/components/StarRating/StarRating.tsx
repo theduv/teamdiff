@@ -53,4 +53,4 @@ const StarRatingBase = ({
   );
 };
 
-export const StarRating = memo(StarRatingBase);
+export default memo(StarRatingBase);

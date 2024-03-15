@@ -1,8 +1,8 @@
 import { memo, useContext } from "react";
 
+import Badge from "../../badge/Badge";
 import { BADGE_NAME } from "../../../../../hooks/enums/lib";
 import { SummonerPageContext } from "../../../contexts/SummonerPage.context";
-import { Badge } from "../../badge/Badge";
 
 const BadgesZoneBase = () => {
   const { summoner } = useContext(SummonerPageContext);
@@ -28,4 +28,4 @@ const BadgesZoneBase = () => {
   );
 };
 
-export const BadgesZone = memo(BadgesZoneBase);
+export default memo(BadgesZoneBase);

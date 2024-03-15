@@ -1,8 +1,9 @@
 import { memo, useContext } from "react";
 
-import { ChampionsList } from "./components/champions-list/ChampionsList";
+import ChampionsList from "./components/champions-list/ChampionsList";
+import SelectedChampionSummary from "./components/selected-champion-summary/SelectedChampionSummary";
+
 import { SummonerMorePageContext } from "./contexts/SummonerMorePage.context";
-import { SelectedChampionSummary } from "./components/selected-champion-summary/SelectedChampionSummary";
 
 const SummonerMorePageBase = () => {
   const { summoner } = useContext(SummonerMorePageContext);
@@ -17,4 +18,4 @@ const SummonerMorePageBase = () => {
   );
 };
 
-export const SummonerMorePage = memo(SummonerMorePageBase);
+export default memo(SummonerMorePageBase);
