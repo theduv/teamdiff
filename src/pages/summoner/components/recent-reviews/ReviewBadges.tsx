@@ -1,15 +1,14 @@
 import { memo } from "react";
 
-import { BADGE_NAME } from "../../../../hooks/enums/lib";
 import Badge from "../badge/Badge";
+
+import { BADGE_NAME } from "../../../../hooks/enums/lib";
 
 type ReviewBadgesProps = {
   badges: BADGE_NAME[];
 };
 
 const ReviewBadgesBase = ({ badges }: ReviewBadgesProps) => {
-  console.log({ badges });
-
   return (
     <div className="flex items-center">
       {badges.map((badge) => (
