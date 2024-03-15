@@ -1,5 +1,6 @@
 import { memo, useContext } from "react";
 import { Link } from "wouter";
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
 import { AuthContext } from "../../contexts/Auth";
 import { useGetRiotSummonerByPUUID } from "../../hooks/queries/summoner";
@@ -7,15 +8,25 @@ import { getSummonerIconURL } from "../../lib/functions/getSummonerIconURL";
 
 const HeaderBase = () => {
   const auth = useContext(AuthContext);
+
+  const onClickArrow = () => {
+    window.history.back();
+  };
+
   const { data: riotSummoner } = useGetRiotSummonerByPUUID(
     auth.summoner?.PUUID
   );
 
   return (
     <div className="flex sticky top-0 z-50 h-[80px] w-full px-2 py-4 bg-secondary justify-between items-center">
-      <Link href="/">
-        <h1 className="font-semibold text-3xl italic">CheckM8</h1>
-      </Link>
+      <div className="flex items-center space-x-2">
+        <button onClick={onClickArrow}>
+          <MdOutlineKeyboardArrowLeft size={34} />
+        </button>
+        <Link href="/">
+          <h1 className="font-semibold text-3xl italic">CheckM8</h1>
+        </Link>
+      </div>
       {riotSummoner && auth.summoner && (
         <div className="flex items-center space-x-2">
           <h2 className="text-xl">
