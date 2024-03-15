@@ -23,15 +23,16 @@ const ChampionsListBase = () => {
   };
 
   return (
-    <div className="flex w-full flex-col items-center space-y-4 p-4 rounded-lg bg-gray-100">
+    <div className="flex-col items-center space-y-4 p-4 rounded-lg bg-gray-100">
       <TextInput
+        placeholderPosition="top"
         value={searchValue}
         onChangeValue={onChangeSearchValue}
         label="Search for a champion"
         placeholder="Aatrox"
       />
       <div className="h-[1px] bg-gray-700 w-full" />
-      <div className="flex flex-col space-y-2 w-full px-24">
+      <div className="flex flex-col w-full ">
         {summoner?.championGrades
           .filter((grade) =>
             grade.championName.toLowerCase().includes(searchValue.toLowerCase())
@@ -51,7 +52,7 @@ const ChampionsListBase = () => {
                 <span>{championGrade.championName}</span>
               </div>
               <div className="flex items-center space-x-1 col-span-2">
-                <StarRating rating={championGrade.grade} />
+                <StarRating rating={championGrade.grade} size={"xsmall"} />
                 <span>{championGrade.grade}</span>
               </div>
             </div>

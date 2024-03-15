@@ -11,7 +11,7 @@ const SummonerMorePageBase = () => {
   if (!summoner) return null;
 
   return (
-    <div className="px-96 space-y-4 flex-col text-primary flex justify-center items-center h-full p-2">
+    <div className="px-96 space-x-4 text-primary flex justify-center items-center h-full p-4">
       <ChampionsList />
       <SelectedChampionSummary />
     </div>

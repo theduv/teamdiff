@@ -1,23 +1,31 @@
 import { ChangeEvent, KeyboardEvent, memo } from "react";
 import { noop } from "lodash";
+import clsx from "clsx";
 
 type TextInputBase = {
   value: string;
   onChangeValue: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
+  placeholderPosition?: "top" | "left";
   label?: string;
   onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
 };
 
 const TextInputBase = ({
   placeholder = "",
+  placeholderPosition = "left",
   label = "",
   value,
   onChangeValue,
   onKeyDown = noop,
 }: TextInputBase) => {
   return (
-    <label className="flex items-center space-x-4 text-gray-500">
+    <label
+      className={clsx("flex items-center text-gray-500", {
+        "space-x-4": placeholderPosition === "left",
+        "flex-col space-y-1": placeholderPosition === "top",
+      })}
+    >
       {!!label && <h2>{label}</h2>}
       <input
         onKeyDown={onKeyDown}
