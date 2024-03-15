@@ -24,7 +24,7 @@ const SelectedChampionSummaryBase = () => {
   if (!selectedChampion || !summoner) return null;
 
   return (
-    <div className="p-4 rounded-lg bg-gray-100 space-y-4">
+    <div className="p-4 rounded-lg bg-gray-100 space-y-4 w-full">
       <div className="flex flex-col items-center space-y-2">
         <img
           className="rounded-xl"

@@ -1,10 +1,10 @@
 import { ChangeEvent, memo, useContext, useState } from "react";
+import { IoSend } from "react-icons/io5";
 
 import BadgesSelector from "./BadgesSelector";
 import ModalRecentMatches from "./ModalRecentMatches";
 import StarRating from "../../../../components/StarRating/StarRating";
 
-import { IoSend } from "react-icons/io5";
 import { BADGE_NAME, CHAMPION_ID } from "../../../../hooks/enums/lib";
 import { SummonerPageContext } from "../../contexts/SummonerPage.context";
 import { getChampionIconURL } from "../../../../lib/functions/getChampionIconURL";
