@@ -1,6 +1,7 @@
 import { memo, useContext } from "react";
 import { Route, Switch } from "wouter";
 
+import Header from "../components/Layout/Header";
 import { HomePage } from "../pages/home/HomePage";
 import SummonerPage from "../pages/summoner/SummonerPage.container";
 import SummonerMorePage from "../pages/summoner-more/SummonerMorePage.container";
@@ -12,6 +13,7 @@ const RouterBase = () => {
   return isConnected ? (
     <Switch>
       <div className="h-full w-full bg-primary">
+        <Header />
         <Route path="/" component={HomePage} />
         <Route path="/summoner/:id" component={SummonerPage} />
         <Route path="/summoner/:id/more" component={SummonerMorePage} />
