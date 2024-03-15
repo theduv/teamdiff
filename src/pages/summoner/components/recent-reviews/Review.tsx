@@ -30,7 +30,7 @@ const ReviewBase = ({ review }: ReviewProps) => {
   if (!summoner || !riotSummoner) return null;
 
   return (
-    <div className="flex">
+    <div className="flex w-full">
       <div
         className={clsx("flex rounded-lg w-full space-x-3", {
           "bg-red-100": !review.hasWon,

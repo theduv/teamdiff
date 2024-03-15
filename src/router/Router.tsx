@@ -12,7 +12,7 @@ const RouterBase = () => {
 
   return isConnected ? (
     <Switch>
-      <div className="h-full w-full bg-primary">
+      <div className="h-full pb-[80px] w-full bg-primary ">
         <Header />
         <Route path="/" component={HomePage} />
         <Route path="/summoner/:id" component={SummonerPage} />

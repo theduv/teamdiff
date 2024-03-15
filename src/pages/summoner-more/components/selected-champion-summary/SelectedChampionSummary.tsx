@@ -24,8 +24,8 @@ const SelectedChampionSummaryBase = () => {
   if (!selectedChampion || !summoner) return null;
 
   return (
-    <div className="p-4 rounded-lg bg-gray-100 space-y-4 w-full">
-      <div className="flex flex-col items-center space-y-2">
+    <div className="p-4 rounded-lg bg-gray-100 space-y-4 w-full h-full flex flex-col">
+      <div className="flex flex-col items-center space-y-2 ">
         <img
           className="rounded-xl"
           width={CHAMPION_ICON_SIZE}
@@ -40,9 +40,11 @@ const SelectedChampionSummaryBase = () => {
         </span>
       </div>
       <div className="h-[1px] bg-gray-700 w-full" />
-      {reviews?.map((review) => (
-        <Review review={review} />
-      ))}
+      <div className="overflow-y-auto h-full">
+        {reviews?.map((review) => (
+          <Review review={review} />
+        ))}
+      </div>
     </div>
   );
 };

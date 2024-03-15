@@ -12,7 +12,7 @@ const HeaderBase = () => {
   );
 
   return (
-    <div className="flex w-full px-2 py-4 bg-secondary justify-between items-center">
+    <div className="flex sticky top-0 z-50 h-[80px] w-full px-2 py-4 bg-secondary justify-between items-center">
       <Link href="/">
         <h1 className="font-semibold text-3xl italic">CheckM8</h1>
       </Link>
