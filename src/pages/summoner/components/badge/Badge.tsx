@@ -27,7 +27,7 @@ const getBadgeIcon = (element: BADGE_NAME) => {
   }
 };
 
-const BadgeBase = ({
+export const BadgeBase = ({
   element,
   disabled = false,
   onClick = noop,

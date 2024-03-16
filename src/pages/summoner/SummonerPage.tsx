@@ -9,7 +9,12 @@ import { SummonerPageContext } from "./contexts/SummonerPage.context";
 const SummonerPageBase = () => {
   const { summoner } = useContext(SummonerPageContext);
 
-  if (!summoner) return <div>Error while retrieving this summoner.</div>;
+  if (!summoner)
+    return (
+      <div className="flex items-center justify-center text-secondary h-full">
+        Error while retrieving this summoner.
+      </div>
+    );
 
   return (
     <div className="px-96 py-4 h-full">
